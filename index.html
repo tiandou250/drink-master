@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>饮料小当家 · 101 款爆款饮品家用复刻</title>
+<meta name="description" content="市面主流奶茶与咖啡的爆款饮品，拆成家里能做的配方。有分层图、具体用量、分步做法和避坑提示，手机上照着做就行。">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FCD34D'/><path d='M30 22h40l-7 58H37z' fill='%23000'/></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="app" id="app" data-view="list">
+  <aside class="pane-list">
+    <div class="list-head">
+      <button class="brand" id="brandBtn" type="button">饮料小当家</button>
+      <div class="search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="q" placeholder="搜饮品、品牌、原料" autocomplete="off">
+      </div>
+    </div>
+    <div class="collapsible" id="filterZone">
+      <div class="collapsible-inner">
+        <nav class="tabs" id="tabs"></nav>
+        <div class="filters" id="filters"></div>
+      </div>
+    </div>
+    <div class="cards" id="cards"></div>
+  </aside>
+  <main class="pane-detail" id="detail"></main>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-mask" data-close></div>
+  <div class="modal-card">
+    <div class="modal-brand">饮料小当家</div>
+    <div class="modal-en">Drink Master</div>
+    <div class="modal-rule"></div>
+    <div class="modal-label">设计者</div>
+    <div class="modal-name">tiandou250</div>
+    <button class="modal-close" data-close type="button">知道啦</button>
+  </div>
+</div>
+
+<script src="data/coffee.js"></script>
+<script src="data/milktea.js"></script>
+<script src="data/lighttea.js"></script>
+<script src="data/fruittea.js"></script>
+<script src="data/lemon.js"></script>
+<script src="data/special.js"></script>
+<script src="data/bases.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
