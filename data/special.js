@@ -387,6 +387,71 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'倒冰博克', desc:'杯里先倒冰博克 180ml，再用勺背把抹茶液淋上去分层。', act:'淋入',
      add:[{name:'冰博克牛奶', pct:58, color:'#FDFAF2'}]}
   ]
+},
+
+{
+  id:'hongsirong', name:'红丝绒拿铁', category:'特调', brands:['独立咖啡馆'], nocaf:true,
+  method:'直调', difficulty:2, temp:'热', volume:400, bg:'#EFF6FF',
+  layers:[
+    {name:'红丝绒液', pct:44, color:'#C0392B'},
+    {name:'热牛奶', pct:56, color:'#FBF4F2'}
+  ],
+  intro:'**不含咖啡**，粉红色来自红曲粉或甜菜根粉，不是色素。喝起来是白巧克力的甜，完全没有咖啡味。',
+  ingredients:[
+    {name:'红曲粉', amount:'3g', note:'或甜菜根粉，天然色素'},
+    {name:'白巧克力', amount:'25g', note:'切碎好化'},
+    {name:'牛奶', amount:'220ml'},
+    {name:'淡奶油', amount:'30ml', optional:true},
+    {name:'糖', amount:'10g', optional:true}
+  ],
+  tools:['锅','打泡器','杯子'],
+  pitfalls:[
+    '红曲粉放多了会有药味，3g 是上限。',
+    '白巧克力要小火化，糊了就发苦。'
+  ],
+  fidelity:'咖啡馆用现成红丝绒糖浆，家庭用红曲 + 白巧能到八五成，颜色更自然。',
+  steps:[
+    {title:'化白巧', desc:'白巧克力 25g 加 30ml 牛奶，小火化开。', act:'加热',
+     add:[{name:'白巧液', pct:18, color:'#F5E6E0'}]},
+    {title:'调红丝绒', desc:'加红曲粉 3g 搅匀，过筛一次去颗粒。', act:'搅拌',
+     add:[{name:'红丝绒液', pct:28, color:'#C0392B'}]},
+    {title:'热牛奶', desc:'剩的牛奶 190ml 加热到 65℃。', timer:90, act:'加热',
+     add:[{name:'热牛奶', pct:46, color:'#FBF4F2'}]},
+    {title:'混合', desc:'红丝绒液倒杯底，冲入热牛奶，搅两下出粉白分层。', act:'倒入', add:[]}
+  ]
+},
+
+{
+  id:'zangzang-keke', name:'脏脏可可', category:'特调', brands:['各品牌通用'],
+  method:'分层', difficulty:1, temp:'热', volume:400, bg:'#EEF2FF',
+  layers:[
+    {name:'可可挂壁', pct:14, color:'#3E2415'},
+    {name:'热可可', pct:74, color:'#6B4423'},
+    {name:'奶油顶', pct:12, color:'#FFFFFF'}
+  ],
+  intro:'可可版的脏脏杯。可可粉调稠了抹在杯壁上，喝的时候会往下流。视觉大于味道，但冬天很治愈。',
+  ingredients:[
+    {name:'无糖可可粉', amount:'20g', note:'其中 5g 用来挂壁'},
+    {name:'热水', amount:'80ml'},
+    {name:'牛奶', amount:'250ml'},
+    {name:'糖', amount:'25g'},
+    {name:'淡奶油', amount:'40ml', optional:true}
+  ],
+  tools:['锅','勺子','杯子'],
+  pitfalls:[
+    '挂壁的可可糊要够稠，稀了会滑到底。',
+    '热可可别煮沸，会糊底发苦。'
+  ],
+  fidelity:'门店用巧克力酱挂壁更亮，家庭可可粉哑光但更香。',
+  steps:[
+    {title:'调挂壁糊', desc:'取 5g 可可粉 + 15ml 热水，调成稠糊。', act:'搅拌',
+     add:[{name:'可可糊', pct:12, color:'#3E2415'}]},
+    {title:'抹杯壁', desc:'用勺背把可可糊抹在杯壁内侧，抹出不规则流痕。', act:'挂壁', add:[]},
+    {title:'煮热可可', desc:'剩的 15g 可可粉 + 糖 + 65ml 热水调糊，加牛奶 250ml 小火加热到 65℃。', timer:180, act:'加热',
+     add:[{name:'热可可', pct:72, color:'#6B4423'}]},
+    {title:'倒入挤奶油', desc:'倒进挂了壁的杯子，表面挤打发淡奶油。', timer:45, act:'铺面',
+     add:[{name:'奶油顶', pct:12, color:'#FFFFFF'}]}
+  ]
 }
 
 ]);

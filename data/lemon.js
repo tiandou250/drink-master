@@ -284,6 +284,71 @@ window.DRINKS = (window.DRINKS || []).concat([
      add:[{name:'七喜', pct:50, color:'#FAF6D0'}]},
     {title:'放柠檬片', desc:'表面放两片新鲜柠檬。', act:'铺面', add:[]}
   ]
+},
+
+{
+  id:'laoyan', name:'老盐柠檬茶', category:'柠檬茶', brands:['海南茶饮店'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#F7FEE7',
+  layers:[
+    {name:'老盐柠檬片', pct:16, color:'#D9C86A'},
+    {name:'茶汤', pct:84, color:'#C9D99A'}
+  ],
+  intro:'海南人的解暑神器。老盐不是普通盐，是放了多年的粗海盐，带一点矿物质味，咸得很有层次。',
+  ingredients:[
+    {name:'老盐', amount:'3g', note:'没有就用粗海盐，别用精盐'},
+    {name:'香水柠檬', amount:'1 个'},
+    {name:'茉莉绿茶', amount:'200ml'},
+    {name:'糖浆', amount:'30ml', note:'咸甜要平衡，糖不能少'},
+    {name:'冰块', amount:'约 180g'}
+  ],
+  tools:['摇壶','捣棒','滤网'],
+  pitfalls:[
+    '盐超过 4g 就齁了，3g 是上限。',
+    '老盐要先化在少量温水里再加，直接撒会沉底。'
+  ],
+  fidelity:'海南用陈年老盐，矿物质感明显。普通海盐咸得直白，但结构一致。',
+  steps:[
+    {title:'化盐', desc:'老盐 3g 加 20ml 温水化开。', act:'搅拌',
+     add:[{name:'盐水', pct:6, color:'#E8E4D0'}]},
+    {title:'捶柠檬', desc:'柠檬切片去籽，捶 6 下。', act:'捣碎',
+     add:[{name:'柠檬片', pct:14, color:'#D9C86A'}]},
+    {title:'泡茶', desc:'绿茶 6g 用 85℃ 水 200ml 泡 3 分钟，放凉。', timer:180, act:'冲泡',
+     add:[{name:'茶汤', pct:70, color:'#C9D99A'}]},
+    {title:'摇匀', desc:'全部加糖浆 30ml 和冰，摇 15 秒。', timer:15, act:'摇匀',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'jinju', name:'金桔柠檬', category:'柠檬茶', brands:['台湾手摇饮','各大品牌'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:500, bg:'#F0FDF4',
+  layers:[
+    {name:'金桔', pct:18, color:'#E8B03A'},
+    {name:'柠檬片', pct:12, color:'#F0DE7E'},
+    {name:'绿茶汤', pct:70, color:'#D4E3A0'}
+  ],
+  intro:'金桔提供皮油的香，柠檬提供酸，两样一起才叫金桔柠檬。只用金桔会太甜，只用柠檬会太酸。',
+  ingredients:[
+    {name:'金桔', amount:'6 颗'},
+    {name:'柠檬', amount:'半个'},
+    {name:'茉莉绿茶', amount:'200ml'},
+    {name:'糖浆', amount:'28ml'},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['摇壶','捣棒','杯子'],
+  pitfalls:[
+    '金桔要切开挤，整颗扔进去出不了味。',
+    '金桔籽要去掉，籽有苦味。'
+  ],
+  fidelity:'台湾手摇饮用鲜果现摇，家庭完全可复刻。',
+  steps:[
+    {title:'处理金桔柠檬', desc:'金桔对半切挤汁（籽挑掉），柠檬切片。', act:'备料',
+     add:[{name:'金桔', pct:18, color:'#E8B03A'}]},
+    {title:'捶打', desc:'金桔皮和柠檬片捶 4 下，出油就停。', act:'捣碎',
+     add:[{name:'柠檬片', pct:12, color:'#F0DE7E'}]},
+    {title:'摇匀', desc:'加茶汤 200ml、糖浆 28ml、冰，摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'绿茶汤', pct:62, color:'#D4E3A0'}]}
+  ]
 }
 
 ]);

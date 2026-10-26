@@ -568,6 +568,243 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'加浓缩', desc:'勺背导流。', act:'淋入',
      add:[{name:'浓缩咖啡', pct:16, color:'#5A3A22'}]}
   ]
+},
+
+{
+  id:'moka', name:'摩卡', category:'咖啡', brands:['星巴克','瑞幸','CoCo'],
+  method:'分层', difficulty:2, temp:'热', volume:400, bg:'#D97706',
+  layers:[
+    {name:'巧克力酱', pct:16, color:'#3E2415'},
+    {name:'浓缩咖啡', pct:26, color:'#5A3A22'},
+    {name:'热牛奶', pct:44, color:'#FAF4E9'},
+    {name:'奶油顶', pct:14, color:'#FFFFFF'}
+  ],
+  intro:'拿铁加巧克力酱，甜党的入门款。巧克力酱要搅进咖啡里而不是沉底，不然喝到最后齁死。',
+  ingredients:[
+    {name:'巧克力酱', amount:'25g', note:'能挤出来的那种，不是巧克力块'},
+    {name:'浓缩咖啡', amount:'60ml'},
+    {name:'牛奶', amount:'150ml'},
+    {name:'淡奶油', amount:'40ml', optional:true},
+    {name:'可可粉', amount:'2g', optional:true, note:'撒表面'}
+  ],
+  tools:['锅','打泡器','杯子'],
+  pitfalls:[
+    '巧克力酱要先和浓缩搅匀，直接铺杯底会沉成一块。',
+    '牛奶别煮沸，70℃ 就够，沸了会结皮。'
+  ],
+  fidelity:'星巴克用摩卡酱（含糖可可），家庭用巧克力酱甜度更高，糖可以不放。',
+  steps:[
+    {title:'调巧克力咖啡', desc:'巧克力酱 25g 加浓缩 60ml，搅到完全融合。', act:'搅拌',
+     add:[{name:'巧克力咖啡', pct:38, color:'#4A2C1A'}]},
+    {title:'热牛奶', desc:'牛奶 150ml 加热到 65℃，打出薄泡。', timer:90, act:'加热',
+     add:[{name:'热牛奶', pct:46, color:'#FAF4E9'}]},
+    {title:'倒入', desc:'巧克力咖啡倒杯底，再倒热牛奶。', act:'倒入', add:[]},
+    {title:'挤奶油', desc:'淡奶油 40ml 打发，挤在上面，筛一点可可粉。', timer:45, act:'铺面',
+     add:[{name:'奶油顶', pct:14, color:'#FFFFFF'}]}
+  ]
+},
+
+{
+  id:'aobai', name:'澳白', category:'咖啡', brands:['Manner','星巴克','瑞幸'],
+  method:'直调', difficulty:2, temp:'热', volume:240, bg:'#F5F5F4',
+  layers:[
+    {name:'浓缩咖啡', pct:42, color:'#4A2C17'},
+    {name:'微泡牛奶', pct:58, color:'#FAF4E9'}
+  ],
+  intro:'和拿铁的区别就三点：奶少、咖啡重、奶泡薄到几乎没有。所以杯量小，240ml 是标准。',
+  ingredients:[
+    {name:'浓缩咖啡', amount:'60ml', note:'双份，不能减'},
+    {name:'全脂牛奶', amount:'120ml', note:'比拿铁少三分之一'},
+    {name:'糖', amount:'5g', optional:true, note:'澳白默认不加糖'}
+  ],
+  tools:['打泡器','杯子'],
+  pitfalls:[
+    '奶泡打厚了就不是澳白了，只要一层薄薄的丝绒感。',
+    '奶量别按拿铁来，多了咖啡味就散了。'
+  ],
+  fidelity:'门店用双份 ristretto（短萃）更甜，家用普通浓缩会稍苦，可以少萃 5 秒。',
+  steps:[
+    {title:'萃双份', desc:'双份浓缩 60ml 进杯。', act:'备料',
+     add:[{name:'浓缩咖啡', pct:42, color:'#4A2C17'}]},
+    {title:'打薄奶', desc:'牛奶 120ml 打到 60℃，只出薄薄一层微泡。', timer:40, act:'搅拌',
+     add:[{name:'微泡牛奶', pct:58, color:'#FAF4E9'}]},
+    {title:'融合', desc:'奶缸贴杯壁倒入，让奶和咖啡融成一体，表面只有一层薄光。', act:'倒入', add:[]}
+  ]
+},
+
+{
+  id:'yeyun', name:'椰云拿铁', category:'咖啡', brands:['瑞幸'],
+  method:'分层', difficulty:2, temp:'冰', volume:500, bg:'#E7E5E4',
+  layers:[
+    {name:'厚椰乳', pct:44, color:'#F0DFC8'},
+    {name:'浓缩咖啡', pct:22, color:'#6F4E37'},
+    {name:'椰云顶', pct:34, color:'#FDFBF6'}
+  ],
+  intro:'生椰拿铁的升级版，多了一层「椰云」——椰浆打发成云朵状，浮在咖啡上面。喝的时候会沾一嘴。',
+  ingredients:[
+    {name:'厚椰乳', amount:'150ml'},
+    {name:'浓缩咖啡', amount:'60ml'},
+    {name:'椰浆', amount:'80ml', note:'浓椰浆，不是椰奶饮料'},
+    {name:'糖', amount:'10g'},
+    {name:'冰块', amount:'约 120g'}
+  ],
+  tools:['打泡器','杯子','勺子'],
+  pitfalls:[
+    '椰浆要冷藏 12 小时以上才打得起来，常温的不行。',
+    '椰云打过头会变成油水分离，打到浓稠能挂勺就停。'
+  ],
+  fidelity:'瑞幸用定制椰云基底，家庭用浓椰浆加糖打发能到八成，但稳定性差、会消泡。',
+  steps:[
+    {title:'铺冰倒椰乳', desc:'杯子加冰到八分满，倒厚椰乳 150ml。', act:'倒入',
+     add:[{name:'厚椰乳', pct:44, color:'#F0DFC8'},{name:'冰块', pct:10, color:'#DCEFF6'}]},
+    {title:'加咖啡', desc:'勺背导流倒浓缩，让它浮在椰乳上。', act:'淋入',
+     add:[{name:'浓缩咖啡', pct:22, color:'#6F4E37'}]},
+    {title:'打椰云', desc:'冷藏椰浆 80ml 加糖 10g，打到浓稠能缓慢流动。', timer:80, act:'搅拌',
+     add:[{name:'椰云顶', pct:24, color:'#FDFBF6'}]},
+    {title:'铺云顶', desc:'用勺子把椰云铺在最上面，堆成云朵形状。', act:'铺面', add:[]}
+  ]
+},
+
+{
+  id:'nongsuo', name:'浓缩咖啡', category:'咖啡', brands:['全行业通用'],
+  method:'直调', difficulty:2, temp:'热', volume:60, bg:'#D6D3D1',
+  layers:[{name:'浓缩咖啡', pct:100, color:'#3B2416'}],
+  intro:'一切的起点。30 秒萃 30ml，表面那层金褐色的 crema 是判断好坏的标准。没有意式机用摩卡壶也行。',
+  ingredients:[
+    {name:'咖啡豆', amount:'18g', note:'细研磨，像面粉但略带颗粒'},
+    {name:'水', amount:'—', note:'用意式机或摩卡壶，无需计量'}
+  ],
+  tools:['意式咖啡机','压粉器'],
+  pitfalls:[
+    '粉太粗会流速过快，30 秒萃出 60ml 就是过萃发苦。',
+    '萃取时间超过 35 秒一定苦，短于 20 秒会酸。'
+  ],
+  fidelity:'家用意式机压力普遍不足 9bar，crema 会薄。摩卡壶浓度接近但压力不同，风味偏焦。',
+  steps:[
+    {title:'磨粉', desc:'咖啡豆 18g 磨成细粉，比手冲细一档。', act:'备料', add:[]},
+    {title:'布粉压粉', desc:'倒进粉碗，刮平，用压粉器压平压实。', act:'备料', add:[]},
+    {title:'萃取', desc:'扣上手柄立刻萃取，双份约 25-30 秒出 60ml。', timer:28, act:'加热',
+     add:[{name:'浓缩咖啡', pct:100, color:'#3B2416'}]},
+    {title:'看 crema', desc:'表面应有 3-5mm 金褐色泡沫。没有说明豆子不新鲜。', act:'完成', add:[]}
+  ]
+},
+
+{
+  id:'kangbaolan', name:'康宝蓝', category:'咖啡', brands:['意式咖啡馆'],
+  method:'分层', difficulty:1, temp:'热', volume:120, bg:'#FAFAF9',
+  layers:[
+    {name:'浓缩咖啡', pct:55, color:'#3B2416'},
+    {name:'打发淡奶油', pct:45, color:'#FFFFFF'}
+  ],
+  intro:'意大利的老式喝法：浓缩上堆一坨不加糖的打发奶油。不搅，直接喝，一口咖啡一口奶油。',
+  ingredients:[
+    {name:'浓缩咖啡', amount:'60ml', note:'双份'},
+    {name:'淡奶油', amount:'50ml', note:'必须冷藏 12 小时以上'},
+    {name:'糖粉', amount:'5g', optional:true, note:'撒奶油上'}
+  ],
+  tools:['打泡器','杯子'],
+  pitfalls:[
+    '奶油不加糖才能中和咖啡的苦，加了就变成甜品。',
+    '奶油要打到能立住，稀的会直接沉进咖啡里。'
+  ],
+  fidelity:'意式咖啡馆用现打鲜奶油，家庭打泡器打到硬性发泡即可，差别不大。',
+  steps:[
+    {title:'萃浓缩', desc:'双份浓缩 60ml 进小杯。', act:'备料',
+     add:[{name:'浓缩咖啡', pct:55, color:'#3B2416'}]},
+    {title:'打奶油', desc:'冷藏淡奶油 50ml 打到硬性发泡，能立起直角尖。', timer:90, act:'搅拌',
+     add:[{name:'打发淡奶油', pct:45, color:'#FFFFFF'}]},
+    {title:'堆奶油', desc:'用两把勺子把奶油堆在咖啡上，堆成圆顶。', act:'铺面', add:[]}
+  ]
+},
+
+{
+  id:'lengcui-qipao', name:'冷萃气泡美式', category:'咖啡', brands:['星巴克','Manner'],
+  method:'直调', difficulty:1, temp:'冰', volume:400, bg:'#FFFBEB',
+  layers:[
+    {name:'气泡水', pct:58, color:'#F5FAFC'},
+    {name:'冷萃液', pct:42, color:'#3A2416'}
+  ],
+  intro:'气泡水加冷萃，喝起来像咖啡味的汽水。气泡会把咖啡香气顶上来，比普通冰美式香。',
+  ingredients:[
+    {name:'冷萃液', amount:'120ml', note:'没有就用浓缩 40ml + 冷水 80ml'},
+    {name:'气泡水', amount:'180ml', note:'要冰的，常温的没气'},
+    {name:'冰块', amount:'约 150g'},
+    {name:'柠檬片', amount:'1 片', optional:true}
+  ],
+  tools:['杯子','勺子'],
+  pitfalls:[
+    '气泡水最后倒，倒早了气泡全跑光。',
+    '别用勺子搅，会加速消气，轻轻晃杯就行。'
+  ],
+  fidelity:'门店用现打气泡水，瓶装的二氧化碳压力低，气泡更粗、消散更快。',
+  steps:[
+    {title:'冰块打底', desc:'杯里装八分满冰块。', act:'铺冰',
+     add:[{name:'冰块', pct:52, color:'#DCEFF6'}]},
+    {title:'倒冷萃', desc:'冷萃液 120ml 倒进去。', act:'倒入',
+     add:[{name:'冷萃液', pct:26, color:'#3A2416'}]},
+    {title:'加气泡水', desc:'沿杯壁缓慢倒冰气泡水 180ml，会起一层沫。', act:'倒入',
+     add:[{name:'气泡水', pct:22, color:'#F5FAFC'}]},
+    {title:'不要搅', desc:'放一片柠檬，轻轻晃两下杯身就好。', act:'完成', add:[]}
+  ]
+},
+
+{
+  id:'chengxiang-lengcui', name:'橙香冷萃', category:'咖啡', brands:['瑞幸','Manner'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:400, bg:'#FFE4E6',
+  layers:[
+    {name:'橙汁', pct:40, color:'#F5A623'},
+    {name:'冷萃液', pct:60, color:'#3A2416'}
+  ],
+  intro:'和橙 C 美式的区别是用冷萃而不是浓缩，酸苦都更柔和。橙皮油是香气来源，别只挤汁。',
+  ingredients:[
+    {name:'冷萃液', amount:'150ml'},
+    {name:'橙子', amount:'1 个', note:'取汁 100ml，另削两条皮'},
+    {name:'糖浆', amount:'10ml', optional:true},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '只挤汁不削皮，香气会少一半。',
+    '橙皮只削黄色部分，白瓤会苦。'
+  ],
+  fidelity:'门店用橙皮精油喷雾，家庭削皮摇匀也能出香，但持久度差。',
+  steps:[
+    {title:'取橙汁橙皮', desc:'橙子挤汁 100ml，另削两条黄色表皮。', act:'备料',
+     add:[{name:'橙汁', pct:38, color:'#F5A623'}]},
+    {title:'摇匀', desc:'橙汁 + 冷萃 150ml + 橙皮 + 糖浆，加冰摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'冷萃液', pct:54, color:'#3A2416'}]},
+    {title:'滤出装杯', desc:'滤掉橙皮，倒入杯子。', act:'倒入', add:[]}
+  ]
+},
+
+{
+  id:'yanmai-lengcui', name:'燕麦冷萃', category:'咖啡', brands:['星巴克','Manner'],
+  method:'直调', difficulty:1, temp:'冰', volume:450, bg:'#FEFCE8',
+  layers:[
+    {name:'冷萃液', pct:40, color:'#3A2416'},
+    {name:'燕麦奶', pct:60, color:'#E8DCC4'}
+  ],
+  intro:'冷萃本身酸度低、口感圆，配燕麦奶比配牛奶更顺。乳糖不耐受的人可以放心喝。',
+  ingredients:[
+    {name:'冷萃液', amount:'150ml'},
+    {name:'燕麦奶', amount:'200ml', note:'咖啡师版，普通版会分层'},
+    {name:'冰块', amount:'约 150g'},
+    {name:'糖浆', amount:'8ml', optional:true}
+  ],
+  tools:['杯子','勺子'],
+  pitfalls:[
+    '普通燕麦奶遇冷萃的酸会絮状分离，必须用咖啡师版。',
+    '冷萃别兑水，浓度会太稀。'
+  ],
+  fidelity:'门店用同款燕麦奶，这一杯在家还原度能到九成五。',
+  steps:[
+    {title:'冰块打底', desc:'冰块八分满。', act:'铺冰',
+     add:[{name:'冰块', pct:44, color:'#DCEFF6'}]},
+    {title:'倒冷萃', desc:'冷萃 150ml 倒进去。', act:'倒入',
+     add:[{name:'冷萃液', pct:22, color:'#3A2416'}]},
+    {title:'加燕麦奶', desc:'沿杯壁倒燕麦奶 200ml，会自然形成渐变。', act:'倒入',
+     add:[{name:'燕麦奶', pct:34, color:'#E8DCC4'}]}
+  ]
 }
 
 ]);

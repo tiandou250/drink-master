@@ -516,6 +516,133 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'加桃粒', desc:'表面放桃粒。', act:'铺面',
      add:[{name:'桃粒', pct:4, color:'#F9A8D4'}]}
   ]
+},
+
+{
+  id:'guihuayin', name:'桂花引', category:'轻乳茶', brands:['茶颜悦色'],
+  method:'直调', difficulty:1, temp:'冰', volume:500, bg:'#F0FDFA',
+  layers:[
+    {name:'桂花乌龙', pct:60, color:'#DCC898'},
+    {name:'鲜奶', pct:38, color:'#FDFBF6'},
+    {name:'干桂花', pct:2, color:'#E8B923'}
+  ],
+  intro:'茶颜悦色里最低调的一款，没有奶油雪顶，就是纯粹的桂花乌龙加奶。秋天喝最应景。',
+  ingredients:[
+    {name:'桂花乌龙', amount:'8g', note:'窨制过的，带干花'},
+    {name:'热水', amount:'220ml', note:'95℃'},
+    {name:'鲜奶', amount:'130ml'},
+    {name:'糖浆', amount:'10ml', optional:true}
+  ],
+  tools:['杯子','滤网'],
+  pitfalls:[
+    '乌龙要沸水泡，温度低了桂花香出不来。',
+    '奶别超过 140ml，多了就成奶茶不是轻乳茶了。'
+  ],
+  fidelity:'茶颜悦色用自窨桂花乌龙，家用现成的窨制茶香气会薄一层。',
+  steps:[
+    {title:'泡乌龙', desc:'95℃ 水 220ml 泡 4 分钟，盖着盖子。', timer:240, act:'冲泡',
+     add:[{name:'桂花乌龙', pct:60, color:'#DCC898'}]},
+    {title:'降温', desc:'加冰搅到不烫手。', act:'降温',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]},
+    {title:'倒奶', desc:'倒鲜奶 130ml、糖浆，轻搅。', act:'倒入',
+     add:[{name:'鲜奶', pct:28, color:'#FDFBF6'}]},
+    {title:'撒桂花', desc:'表面撒一点干桂花。', act:'铺面',
+     add:[{name:'干桂花', pct:2, color:'#E8B923'}]}
+  ]
+},
+
+{
+  id:'lvfeihongshou', name:'绿肥红瘦', category:'轻乳茶', brands:['茶颜悦色'],
+  method:'直调', difficulty:1, temp:'冰', volume:500, bg:'#ECFDF5',
+  layers:[
+    {name:'红茶底', pct:58, color:'#C08A5A'},
+    {name:'鲜奶', pct:42, color:'#FDFBF6'}
+  ],
+  intro:'红茶底的轻乳茶，比绿茶底更厚、更「暖」。名字取自李清照，茶颜悦色的起名一贯这么文艺。',
+  ingredients:[
+    {name:'滇红或正山小种', amount:'6g'},
+    {name:'热水', amount:'200ml', note:'95℃'},
+    {name:'鲜奶', amount:'150ml'},
+    {name:'糖浆', amount:'12ml', optional:true}
+  ],
+  tools:['杯子','滤网'],
+  pitfalls:[
+    '红茶泡 5 分钟才够厚，短了会寡。',
+    '茶汤要放凉再加奶，热的会腥。'
+  ],
+  fidelity:'茶颜悦色用拼配红茶，家用单一滇红能到八五成，正山小种更香但更贵。',
+  steps:[
+    {title:'泡红茶', desc:'95℃ 水 200ml 泡 5 分钟。', timer:300, act:'冲泡',
+     add:[{name:'红茶底', pct:58, color:'#C08A5A'}]},
+    {title:'降温', desc:'加冰搅凉。', act:'降温',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]},
+    {title:'倒奶', desc:'倒鲜奶 150ml、糖浆，轻搅两下。', act:'倒入',
+     add:[{name:'鲜奶', pct:32, color:'#FDFBF6'}]}
+  ]
+},
+
+{
+  id:'moli-chuxue', name:'茉莉初雪', category:'轻乳茶', brands:['茶话弄'],
+  method:'打泡', difficulty:2, temp:'冰', volume:500, bg:'#F0FDF4',
+  layers:[
+    {name:'茉莉绿茶', pct:56, color:'#E5DCBC'},
+    {name:'鲜奶', pct:32, color:'#FDFBF6'},
+    {name:'雪顶奶泡', pct:12, color:'#FFFFFF'}
+  ],
+  intro:'西安茶话弄的招牌，「初雪」说的是顶上那层白得发亮的奶泡。茉莉香气要够足才撑得起这个名字。',
+  ingredients:[
+    {name:'茉莉绿茶', amount:'7g', note:'窨制次数高的更好'},
+    {name:'热水', amount:'200ml', note:'85℃'},
+    {name:'鲜奶', amount:'130ml'},
+    {name:'淡奶油', amount:'40ml'},
+    {name:'糖', amount:'8g'},
+    {name:'糖浆', amount:'10ml', optional:true}
+  ],
+  tools:['打泡器','杯子','滤网'],
+  pitfalls:[
+    '奶泡要冷打，热打出来的泡粗且会塌。',
+    '茉莉茶泡超 3 分钟会涩，定好时间。'
+  ],
+  fidelity:'茶话弄用定制茉莉茶底，家用高窨次茉莉绿茶能到八五成。',
+  steps:[
+    {title:'泡茉莉', desc:'85℃ 水 200ml 泡 3 分钟，盖盖。', timer:180, act:'冲泡',
+     add:[{name:'茉莉绿茶', pct:56, color:'#E5DCBC'}]},
+    {title:'降温加奶', desc:'加冰搅凉，倒鲜奶 130ml。', act:'倒入',
+     add:[{name:'鲜奶', pct:30, color:'#FDFBF6'},{name:'冰块', pct:8, color:'#DCEFF6'}]},
+    {title:'打雪顶', desc:'冷淡奶油 40ml 加糖 8g，打到绵密能立住。', timer:80, act:'搅拌',
+     add:[{name:'雪顶奶泡', pct:12, color:'#FFFFFF'}]},
+    {title:'铺顶', desc:'用勺子把奶泡堆成雪堆状，表面抹平。', act:'铺面', add:[]}
+  ]
+},
+
+{
+  id:'juancah-guihua', name:'眷茶桂花鲜奶', category:'轻乳茶', brands:['眷茶'],
+  method:'直调', difficulty:1, temp:'冰', volume:500, bg:'#ECFEFF',
+  layers:[
+    {name:'桂花乌龙', pct:58, color:'#D8C89A'},
+    {name:'鲜奶', pct:42, color:'#FDFBF6'}
+  ],
+  intro:'河南的品牌，主打「一杯茶配一个烧饼」。茶底偏淡，甜度低，是那种喝起来很舒服、说不出哪里特别的类型。',
+  ingredients:[
+    {name:'桂花乌龙', amount:'7g'},
+    {name:'热水', amount:'210ml', note:'95℃'},
+    {name:'鲜奶', amount:'140ml'},
+    {name:'蜂蜜', amount:'12g', optional:true, note:'替代糖浆，风味更柔和'}
+  ],
+  tools:['杯子','滤网'],
+  pitfalls:[
+    '蜂蜜不能用热水冲，会破坏风味，茶汤降到 60℃ 以下再加。',
+    '乌龙泡 4 分钟就滤，久了会涩。'
+  ],
+  fidelity:'眷茶用自家拼配茶底，家用市售桂花乌龙香气会直一些。',
+  steps:[
+    {title:'泡乌龙', desc:'95℃ 水 210ml 泡 4 分钟。', timer:240, act:'冲泡',
+     add:[{name:'桂花乌龙', pct:58, color:'#D8C89A'}]},
+    {title:'降温', desc:'加冰搅到不烫手。', act:'降温',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]},
+    {title:'加奶蜂蜜', desc:'倒鲜奶 140ml，加蜂蜜 12g 轻搅。', act:'倒入',
+     add:[{name:'鲜奶', pct:32, color:'#FDFBF6'}]}
+  ]
 }
 
 ]);

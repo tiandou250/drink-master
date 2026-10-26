@@ -682,6 +682,269 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'封顶', desc:'倒进杯子，表面铺打发的淡奶油。', timer:40, act:'铺面',
      add:[{name:'奶盖', pct:12, color:'#F5F5F5'}]}
   ]
+},
+
+{
+  id:'lujiao-heitang', name:'黑糖鹿丸鲜奶', category:'奶茶', brands:['鹿角巷'], nocaf:true,
+  method:'需煮', difficulty:2, temp:'冰', volume:500, bg:'#FB7185',
+  layers:[
+    {name:'黑糖挂壁', pct:12, color:'#6B4423'},
+    {name:'黑糖鹿丸', pct:26, color:'#3A2418'},
+    {name:'鲜奶', pct:62, color:'#FAF4E9'}
+  ],
+  intro:'鹿角巷带火的那一杯。**不含茶**，就是黑糖珍珠加鲜奶，但挂壁的花纹是全部看点，做好了一端上来就有人拍照。',
+  ingredients:[
+    {name:'黑糖珍珠', amount:'80g', note:'越小颗越像鹿丸'},
+    {name:'鲜奶', amount:'300ml', note:'全脂，冰镇'},
+    {name:'黑糖浆', amount:'30ml'},
+    {name:'冰块', amount:'约 100g'}
+  ],
+  tools:['锅','杯子'],
+  pitfalls:[
+    '黑糖浆必须趁热挂壁，凉了挂不上，只能沉底。',
+    '奶要很冰，温奶会把挂壁的黑糖冲化。'
+  ],
+  fidelity:'鹿角巷用现熬黑糖鹿丸，家庭冷冻珍珠煮久一点也能接近，但挂壁花纹需要练几次。',
+  steps:[
+    {title:'煮鹿丸', desc:'水沸下珍珠，中火煮 25 分钟，关火焖 10 分钟。', timer:1500, act:'加热',
+     add:[{name:'鹿丸', pct:26, color:'#3A2418'}]},
+    {title:'过冷水拌糖', desc:'捞出冲冷水，拌 15ml 黑糖浆。', act:'搅拌', add:[]},
+    {title:'挂壁', desc:'剩的 15ml 黑糖浆倒进空杯，转圈让杯壁挂出不规则糖痕。', act:'挂壁',
+     add:[{name:'黑糖挂壁', pct:12, color:'#6B4423'}]},
+    {title:'放鹿丸', desc:'趁糖还没凉，把鹿丸倒进去，会带出更多纹路。', act:'备料', add:[]},
+    {title:'倒冰奶', desc:'加冰块，沿杯壁倒冰鲜奶 300ml，别搅。', act:'倒入',
+     add:[{name:'鲜奶', pct:60, color:'#FAF4E9'}]}
+  ]
+},
+
+{
+  id:'chunshuitang', name:'春水堂珍珠奶茶', category:'奶茶', brands:['春水堂'],
+  method:'需煮', difficulty:2, temp:'冷热皆可', volume:500, bg:'#F472B6',
+  layers:[
+    {name:'小珍珠', pct:22, color:'#2E1B10'},
+    {name:'奶茶', pct:78, color:'#C9A27E'}
+  ],
+  intro:'1987 年台中春水堂发明的那一杯，全世界珍珠奶茶的起点。它不用黑糖挂壁，就是红茶奶茶加小颗珍珠，朴素得多。',
+  ingredients:[
+    {name:'木薯小珍珠', amount:'60g', note:'比常规珍珠小一半'},
+    {name:'锡兰红茶', amount:'8g'},
+    {name:'热水', amount:'250ml', note:'95℃'},
+    {name:'鲜奶', amount:'120ml'},
+    {name:'糖', amount:'20g'}
+  ],
+  tools:['锅','杯子','滤网'],
+  pitfalls:[
+    '小珍珠煮的时间比大珍珠短，12 分钟就够，久了会烂。',
+    '春水堂版本不加黑糖浆，甜味来自奶茶本身，别习惯性去挂壁。'
+  ],
+  fidelity:'原版用奶精和糖浆，口感更「古早」。换成鲜奶会清淡，但更健康，看你想要哪个。',
+  steps:[
+    {title:'煮小珍珠', desc:'水沸下小珍珠，煮 12 分钟，关火焖 5 分钟。', timer:720, act:'加热',
+     add:[{name:'小珍珠', pct:22, color:'#2E1B10'}]},
+    {title:'过冷水', desc:'捞出冲冷水到不粘。', act:'冲洗', add:[]},
+    {title:'泡红茶', desc:'95℃ 水 250ml 泡 5 分钟，滤掉茶叶。', timer:300, act:'冲泡',
+     add:[{name:'红茶汤', pct:50, color:'#B8860B'}]},
+    {title:'调奶茶', desc:'红茶汤 + 鲜奶 120ml + 糖 20g 搅匀。', act:'搅拌',
+     add:[{name:'奶茶', pct:50, color:'#C9A27E'}]},
+    {title:'加珍珠', desc:'珍珠放杯底，倒奶茶，热饮加热、冰饮加冰。', act:'倒入',
+     add:[{name:'冰块', pct:6, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'yuni-mashu', name:'芋泥麻薯奶茶', category:'奶茶', brands:['茶百道','古茗','沪上阿姨'],
+  method:'需煮', difficulty:3, temp:'冷热皆可', volume:500, bg:'#E9D5FF',
+  layers:[
+    {name:'芋泥', pct:28, color:'#C9A0DC'},
+    {name:'麻薯', pct:20, color:'#F5EFE0'},
+    {name:'奶茶', pct:42, color:'#D9B48C'},
+    {name:'奶盖', pct:10, color:'#FFFFFF'}
+  ],
+  intro:'麻薯是这杯的难点——拉丝感靠糯米粉和水的比例，稀了成糊，稠了成块。做好了能用勺子拉出丝。',
+  ingredients:[
+    {name:'荔浦芋头', amount:'150g'},
+    {name:'糯米粉', amount:'50g', note:'做麻薯'},
+    {name:'牛奶', amount:'250ml'},
+    {name:'糖', amount:'35g'},
+    {name:'红茶', amount:'120ml'},
+    {name:'淡奶油', amount:'30ml'}
+  ],
+  tools:['蒸锅','锅','料理机'],
+  pitfalls:[
+    '麻薯要小火边煮边搅，一停就糊底。',
+    '糯米粉和水的比例约 1:1.2，太稀拉不出丝。'
+  ],
+  fidelity:'门店用麻薯预拌粉，出丝稳定。家庭用糯米粉需要试一两次才能找到手感。',
+  steps:[
+    {title:'蒸芋头', desc:'芋头蒸 25 分钟到软透。', timer:1500, act:'加热', add:[]},
+    {title:'压芋泥', desc:'加糖 20g、牛奶 80ml、淡奶油，压成带颗粒的泥。', act:'捣碎',
+     add:[{name:'芋泥', pct:28, color:'#C9A0DC'}]},
+    {title:'做麻薯', desc:'糯米粉 50g + 牛奶 60ml + 糖 15g 搅匀，小火边煮边搅 5 分钟到成团。', timer:300, act:'加热',
+     add:[{name:'麻薯', pct:20, color:'#F5EFE0'}]},
+    {title:'调奶茶', desc:'红茶 120ml + 剩的牛奶混匀。', act:'搅拌',
+     add:[{name:'奶茶', pct:40, color:'#D9B48C'}]},
+    {title:'组装', desc:'芋泥抹杯壁，放麻薯，倒奶茶，表面加奶盖。', act:'铺面',
+     add:[{name:'奶盖', pct:10, color:'#FFFFFF'}]}
+  ]
+},
+
+{
+  id:'donggua', name:'冬瓜茶', category:'奶茶', brands:['台湾古早味'], nocaf:true,
+  method:'需煮', difficulty:1, temp:'冰', volume:500, bg:'#FFF7ED',
+  layers:[
+    {name:'冬瓜茶冻', pct:18, color:'#A8763E'},
+    {name:'冬瓜茶', pct:82, color:'#C99A5E'}
+  ],
+  intro:'**不含茶，也不含咖啡因**。台湾最古早的消暑饮料，冬瓜糖砖熬出来的，甜得很直接。夏天冰镇一壶能喝三天。',
+  ingredients:[
+    {name:'冬瓜茶砖', amount:'80g', note:'超市或网购，一块约 80g'},
+    {name:'水', amount:'600ml'},
+    {name:'柠檬片', amount:'2 片', optional:true, note:'几滴柠檬汁解腻'},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['锅','杯子'],
+  pitfalls:[
+    '冬瓜茶砖本身极甜，别再放糖，可以加水稀释。',
+    '熬的时候要搅，糖砖容易沉底糊锅。'
+  ],
+  fidelity:'台湾老店用冬瓜加黑糖慢熬 4 小时，茶砖版风味接近但少了点焦香。',
+  steps:[
+    {title:'化糖砖', desc:'冬瓜茶砖 80g 切碎，加 200ml 水小火化开。', timer:300, act:'加热',
+     add:[{name:'冬瓜茶浓缩', pct:30, color:'#A8763E'}]},
+    {title:'稀释', desc:'加剩的 400ml 水，煮开后关火放凉。', act:'倒入',
+     add:[{name:'冬瓜茶', pct:56, color:'#C99A5E'}]},
+    {title:'加冰', desc:'杯中放冰块，倒冬瓜茶，挤几滴柠檬汁。', act:'铺冰',
+     add:[{name:'冰块', pct:14, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'yuanyang', name:'港式鸳鸯', category:'奶茶', brands:['兰芳园','港式茶餐厅'],
+  method:'需煮', difficulty:2, temp:'热', volume:400, bg:'#E7E5E4',
+  layers:[
+    {name:'咖啡', pct:30, color:'#4A2C17'},
+    {name:'丝袜奶茶', pct:70, color:'#C9A27E'}
+  ],
+  intro:'七分奶茶三分咖啡，是港式茶餐厅的标配。「鸳鸯」就是两种东西混在一起，比例可以自己调。',
+  ingredients:[
+    {name:'锡兰红茶', amount:'12g'},
+    {name:'水', amount:'250ml'},
+    {name:'淡奶', amount:'80ml'},
+    {name:'浓缩咖啡', amount:'60ml', note:'或速溶黑咖啡 3g'},
+    {name:'糖', amount:'15g'}
+  ],
+  tools:['锅','滤网','两个壶'],
+  pitfalls:[
+    '咖啡别超过 40%，多了就是咖啡不是鸳鸯。',
+    '茶要够浓，鸳鸯的厚度全靠红茶撑。'
+  ],
+  fidelity:'茶餐厅用现撞的丝袜奶茶 + 现萃咖啡，家庭版用滤网撞茶也能到八成。',
+  steps:[
+    {title:'煮浓茶', desc:'水 250ml 烧开，下红茶煮 4 分钟。', timer:240, act:'加热',
+     add:[{name:'浓茶汤', pct:50, color:'#8B5A2B'}]},
+    {title:'撞茶', desc:'茶汤从高处冲进另一个壶，来回撞 3 次。', act:'冲出', add:[]},
+    {title:'调奶茶', desc:'茶汤加淡奶 80ml、糖 15g。', act:'搅拌',
+     add:[{name:'丝袜奶茶', pct:50, color:'#C9A27E'}]},
+    {title:'兑咖啡', desc:'加浓缩咖啡 60ml，搅匀。', act:'倒入',
+     add:[{name:'咖啡', pct:20, color:'#4A2C17'}]}
+  ]
+},
+
+{
+  id:'yinla-cha', name:'印度拉茶', category:'奶茶', brands:['印度餐厅'],
+  method:'需煮', difficulty:3, temp:'热', volume:400, bg:'#EAB308',
+  layers:[
+    {name:'拉茶', pct:100, color:'#C98A45'}
+  ],
+  intro:'「拉」是动作也是技术——茶在两个杯子间高处来回倒，靠落差打出泡沫。拉得越长，茶越滑。',
+  ingredients:[
+    {name:'阿萨姆红茶', amount:'10g', note:'CTC 碎茶最好'},
+    {name:'水', amount:'250ml'},
+    {name:'牛奶', amount:'150ml'},
+    {name:'炼乳', amount:'30g'},
+    {name:'姜', amount:'3 片', optional:true},
+    {name:'小豆蔻', amount:'2 颗', optional:true}
+  ],
+  tools:['锅','两个高杯'],
+  pitfalls:[
+    '拉的时候要贴近杯子再倒，一开始拉太高会洒一地。',
+    '茶要煮够 5 分钟，煮出浓度才有拉的意义。'
+  ],
+  fidelity:'印度街边用铜壶高拉，泡沫极细。家庭能拉出泡但持久度差，趁热喝。',
+  steps:[
+    {title:'煮茶', desc:'水 250ml 烧开，下红茶、姜、豆蔻煮 5 分钟。', timer:300, act:'加热',
+     add:[{name:'香料茶汤', pct:60, color:'#A8703A'}]},
+    {title:'加奶炼乳', desc:'倒牛奶 150ml、炼乳 30g，再煮 2 分钟。', timer:120, act:'加热',
+     add:[{name:'奶茶', pct:40, color:'#C98A45'}]},
+    {title:'拉茶', desc:'在两个杯子间来回倾倒 6 次，落差 20-30cm。', timer:30, act:'冲出', add:[]},
+    {title:'趁热喝', desc:'表面应有细密泡沫，凉了会消失。', act:'完成', add:[]}
+  ]
+},
+
+{
+  id:'jiangzhuangnai', name:'姜撞奶', category:'奶茶', brands:['港式甜品店','顺德'], nocaf:true,
+  method:'直调', difficulty:3, temp:'热', volume:250, bg:'#FEF3C7',
+  layers:[
+    {name:'姜汁', pct:8, color:'#E8D9A0'},
+    {name:'水牛奶凝乳', pct:92, color:'#FDFBF6'}
+  ],
+  intro:'**不含茶，靠姜的蛋白酶让牛奶凝固**，不加任何凝固剂。成败全看温度——70-80℃ 冲下去才凝，高了低了都是失败。',
+  ingredients:[
+    {name:'老姜', amount:'60g', note:'要老的，嫩姜酶不够'},
+    {name:'水牛奶', amount:'200ml', note:'没有就用全脂牛奶 + 10ml 淡奶油'},
+    {name:'糖', amount:'15g'}
+  ],
+  tools:['擦姜板','锅','碗'],
+  pitfalls:[
+    '奶温超过 85℃ 酶失活，不凝固。低于 60℃ 也凝不了。',
+    '冲下去后绝对不能搅，一搅就散。',
+    '姜汁要现磨现用，放半小时酶就弱了。'
+  ],
+  fidelity:'顺德用水牛奶（脂肪 8%），普通牛奶凝得没那么结实，加淡奶油能改善。',
+  steps:[
+    {title:'磨姜汁', desc:'老姜 60g 磨成蓉，用纱布挤出 15ml 姜汁，分到碗里。', act:'捣碎',
+     add:[{name:'姜汁', pct:10, color:'#E8D9A0'}]},
+    {title:'热奶', desc:'水牛奶 200ml 加糖 15g 加热到 75℃。', timer:120, act:'加热',
+     add:[{name:'热奶', pct:60, color:'#FDFBF6'}]},
+    {title:'冲', desc:'把奶从 15cm 高处一次性冲进姜汁碗里，别搅。', act:'冲出', add:[]},
+    {title:'静置', desc:'盖盖静置 8 分钟，凝固到能托住勺子。', timer:480, act:'焖',
+     add:[{name:'水牛奶凝乳', pct:30, color:'#FDFBF6'}]}
+  ]
+},
+
+{
+  id:'mocha-hongdou', name:'抹茶红豆奶茶', category:'奶茶', brands:['各品牌通用'],
+  method:'需煮', difficulty:2, temp:'冷热皆可', volume:500, bg:'#BEF264',
+  layers:[
+    {name:'蜜红豆', pct:22, color:'#8B3A3A'},
+    {name:'抹茶奶', pct:64, color:'#8FAE6A'},
+    {name:'奶盖', pct:14, color:'#FFFFFF'}
+  ],
+  intro:'抹茶的苦配红豆的甜，日式搭配里最稳的一对。红豆要自己做，罐头的太甜会压住抹茶。',
+  ingredients:[
+    {name:'抹茶粉', amount:'6g'},
+    {name:'热水', amount:'50ml', note:'80℃'},
+    {name:'牛奶', amount:'200ml'},
+    {name:'蜜红豆', amount:'60g', note:'自己做见「蜜红豆」基底'},
+    {name:'糖', amount:'15g'},
+    {name:'淡奶油', amount:'40ml', optional:true}
+  ],
+  tools:['茶筅','打泡器','杯子'],
+  pitfalls:[
+    '抹茶粉必须过筛，不然一嘴颗粒。',
+    '红豆别放太多，会盖掉抹茶味。'
+  ],
+  fidelity:'门店用抹茶粉 + 罐头红豆，家庭自制红豆更香但费时。',
+  steps:[
+    {title:'点抹茶', desc:'抹茶 6g 过筛，加 80℃ 水 50ml 用茶筅刷 30 秒。', timer:30, act:'搅拌',
+     add:[{name:'抹茶液', pct:16, color:'#5C8040'}]},
+    {title:'调抹茶奶', desc:'抹茶液 + 牛奶 200ml + 糖 15g 搅匀。', act:'搅拌',
+     add:[{name:'抹茶奶', pct:52, color:'#8FAE6A'}]},
+    {title:'铺红豆', desc:'杯底放蜜红豆 60g，倒抹茶奶。', act:'倒入',
+     add:[{name:'蜜红豆', pct:18, color:'#8B3A3A'},{name:'冰块', pct:7, color:'#DCEFF6'}]},
+    {title:'加奶盖', desc:'表面铺打发的淡奶油。', timer:40, act:'铺面',
+     add:[{name:'奶盖', pct:12, color:'#FFFFFF'}]}
+  ]
 }
 
 ]);

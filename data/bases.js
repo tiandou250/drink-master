@@ -454,6 +454,106 @@ window.DRINKS = (window.DRINKS || []).concat([
      add:[{name:'冰沙', pct:100, color:'#EAF4FA'}]},
     {title:'立刻用', desc:'打好的冰沙 3 分钟内会开始化，尽快装杯。', act:'完成', add:[]}
   ]
+},
+
+{
+  id:'base-mashu', name:'麻薯', category:'小料', brands:['通用'], isBase:true,
+  method:'需煮', difficulty:3, temp:'冷热皆可', volume:0, bg:'#E5D5B8',
+  layers:[{name:'麻薯', pct:100, color:'#F5EFE0'}],
+  intro:'能不能拉出丝，全看糯米粉和液体的比例。1:1.2 是手感最好的时候，稀了成糊，稠了成块。',
+  ingredients:[
+    {name:'糯米粉', amount:'50g'},
+    {name:'牛奶', amount:'60ml'},
+    {name:'糖', amount:'15g'},
+    {name:'黄油', amount:'5g', optional:true, note:'增香防粘'}
+  ],
+  tools:['锅','刮刀'],
+  pitfalls:[
+    '必须小火，且全程不停搅，一停就糊底。',
+    '煮到成团、能拉出 10cm 长丝就关火，再煮就硬了。'
+  ],
+  fidelity:'门店用麻薯预拌粉，出丝稳定。纯糯米粉需要试一两次找手感。',
+  steps:[
+    {title:'调浆', desc:'糯米粉 50g + 牛奶 60ml + 糖 15g，搅到无颗粒。', act:'搅拌', add:[]},
+    {title:'小火煮', desc:'倒进锅，小火边煮边搅，约 5 分钟到成团。', timer:300, act:'加热', add:[]},
+    {title:'加黄油', desc:'关火加黄油 5g，搅到吸收，能拉出长丝。', act:'搅拌',
+     add:[{name:'麻薯', pct:100, color:'#F5EFE0'}]},
+    {title:'保温', desc:'盖住保持温度，凉了会变硬，用前微波 10 秒。', act:'完成', add:[]}
+  ]
+},
+
+{
+  id:'base-xiaozhenzhu', name:'小珍珠', category:'小料', brands:['通用'], isBase:true,
+  method:'需煮', difficulty:2, temp:'冷热皆可', volume:0, bg:'#BFAE96',
+  layers:[{name:'小珍珠', pct:100, color:'#2E1B10'}],
+  intro:'直径 5mm 左右，比常规珍珠小一半。煮的时间短、口感更嫩，春水堂原版用的就是这个。',
+  ingredients:[
+    {name:'木薯小珍珠', amount:'80g', note:'买现成的生珍珠，别买干的'},
+    {name:'黑糖', amount:'15g'},
+    {name:'水', amount:'1000ml'}
+  ],
+  tools:['锅','滤网'],
+  pitfalls:[
+    '小珍珠煮 12 分钟就够，超过 15 分钟会烂成一锅糊。',
+    '水要多，小珍珠更密，水少了会粘。'
+  ],
+  fidelity:'这个没什么品牌差异，买对尺寸就行。',
+  steps:[
+    {title:'煮', desc:'水沸下小珍珠，中火煮 12 分钟，中途搅两次。', timer:720, act:'加热',
+     add:[{name:'小珍珠', pct:100, color:'#2E1B10'}]},
+    {title:'焖', desc:'关火盖盖焖 5 分钟。', timer:300, act:'焖', add:[]},
+    {title:'过冷水拌糖', desc:'冲冷水到不粘，拌 15g 黑糖。', act:'冲洗', add:[]}
+  ]
+},
+
+{
+  id:'base-yeyunding', name:'椰云顶', category:'小料', brands:['通用'], isBase:true,
+  method:'打泡', difficulty:2, temp:'冷热皆可', volume:0, bg:'#F0F9FF',
+  layers:[{name:'椰云顶', pct:100, color:'#FDFBF6'}],
+  intro:'椰浆打发成云朵状，浮在咖啡上。瑞幸椰云拿铁的那层就是这个，关键是椰浆必须冷藏够久。',
+  ingredients:[
+    {name:'浓椰浆', amount:'100ml', note:'脂肪 20% 以上，冷藏 12 小时'},
+    {name:'糖', amount:'12g'},
+    {name:'盐', amount:'0.5g', optional:true, note:'一点点，提椰香'}
+  ],
+  tools:['打泡器'],
+  pitfalls:[
+    '椰浆没冷藏够打不起来，会直接溅。',
+    '打过头会油水分离，看到变稀就立刻停。'
+  ],
+  fidelity:'瑞幸用定制椰云基底，稳定性好。家庭椰浆打发后会快速消泡，做好 3 分钟内用完。',
+  steps:[
+    {title:'冷藏', desc:'椰浆整罐冷藏 12 小时以上，别摇晃。', timer:43200, act:'浸泡', add:[]},
+    {title:'取稠的部分', desc:'开罐只取上层浓稠的椰浆 100ml，底下的水不要。', act:'备料', add:[]},
+    {title:'打发', desc:'加糖 12g、盐 0.5g，中速打到浓稠能缓慢流动。', timer:80, act:'搅拌',
+     add:[{name:'椰云顶', pct:100, color:'#FDFBF6'}]},
+    {title:'立刻用', desc:'3 分钟内铺到饮品上，久置会消泡。', act:'完成', add:[]}
+  ]
+},
+
+{
+  id:'base-dongguazhuan', name:'冬瓜茶砖', category:'小料', brands:['台湾古早味'], isBase:true,
+  method:'需煮', difficulty:1, temp:'冷热皆可', volume:0, bg:'#C9B99A',
+  layers:[{name:'冬瓜茶砖', pct:100, color:'#A8763E'}],
+  intro:'不是自己做的，是买的。但挑和用有讲究——颜色太深的加了焦糖色，太浅的糖不够。',
+  ingredients:[
+    {name:'冬瓜茶砖', amount:'1 块', note:'约 80g，超市或网购'},
+    {name:'水', amount:'600ml'}
+  ],
+  tools:['锅'],
+  pitfalls:[
+    '茶砖很硬，要切碎再煮，整块下锅要煮很久。',
+    '煮的时候要搅，糖沉底会糊。'
+  ],
+  fidelity:'台湾老店用冬瓜加黑糖熬 4 小时，茶砖版风味接近但少了焦香。想更好买「古法」款。',
+  steps:[
+    {title:'切碎', desc:'茶砖切小块，越小化得越快。', act:'备料', add:[]},
+    {title:'化开', desc:'加 200ml 水小火煮 5 分钟，边煮边搅到完全化开。', timer:300, act:'加热',
+     add:[{name:'冬瓜茶浓缩', pct:40, color:'#A8763E'}]},
+    {title:'稀释', desc:'加剩的 400ml 水煮开，关火放凉。', act:'倒入',
+     add:[{name:'冬瓜茶', pct:60, color:'#C99A5E'}]},
+    {title:'冷藏', desc:'装瓶冷藏，能放 5 天。', act:'完成', add:[]}
+  ]
 }
 
 ]);

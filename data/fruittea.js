@@ -846,6 +846,203 @@ window.DRINKS = (window.DRINKS || []).concat([
      add:[{name:'炖奶', pct:50, color:'#FBF6EC'}]},
     {title:'组合', desc:'木薯和桃胶放进碗里，冲入炖奶。', act:'倒入', add:[]}
   ]
+},
+
+{
+  id:'bqqi-liulian', name:'霸气榴莲', category:'果茶', brands:['奈雪的茶'], nocaf:true,
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#FAF5FF',
+  layers:[
+    {name:'榴莲果肉', pct:36, color:'#E8C860'},
+    {name:'椰浆奶', pct:54, color:'#FBF3E0'},
+    {name:'奶盖', pct:10, color:'#FFFFFF'}
+  ],
+  intro:'**不含茶**。榴莲打成泥配椰浆，浓到像在喝甜品。爱榴莲的人和怕榴莲的人会因为这杯吵起来。',
+  ingredients:[
+    {name:'榴莲肉', amount:'150g', note:'金枕头或猫山王，冷冻的也行'},
+    {name:'椰浆', amount:'100ml'},
+    {name:'牛奶', amount:'80ml'},
+    {name:'糖', amount:'10g', optional:true, note:'榴莲本身甜，可以先不加'},
+    {name:'冰块', amount:'约 100g'}
+  ],
+  tools:['料理机','杯子'],
+  pitfalls:[
+    '榴莲要挑熟透的，生的打出来发苦。',
+    '别打太细，留一点果肉纤维才像真的在吃榴莲。'
+  ],
+  fidelity:'奈雪用当季榴莲现打，家庭用冷冻榴莲肉香气稍弱，但胜在便宜方便。',
+  steps:[
+    {title:'取榴莲肉', desc:'榴莲去核取肉 150g。', act:'备料',
+     add:[{name:'榴莲果肉', pct:38, color:'#E8C860'}]},
+    {title:'打泥', desc:'榴莲肉 + 椰浆 100ml + 牛奶 80ml + 冰，打 15 秒成粗泥。', timer:15, act:'打泥',
+     add:[{name:'椰浆奶', pct:46, color:'#FBF3E0'}]},
+    {title:'装杯', desc:'倒入杯子，表面铺一层奶盖。', act:'铺面',
+     add:[{name:'奶盖', pct:10, color:'#FFFFFF'}]}
+  ]
+},
+
+{
+  id:'sangshen-meimei', name:'桑葚莓莓', category:'果茶', brands:['喜茶','古茗'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#FDF4FF',
+  layers:[
+    {name:'桑葚果肉', pct:24, color:'#4A1B4E'},
+    {name:'草莓果肉', pct:16, color:'#E63B4E'},
+    {name:'莓果茶汤', pct:60, color:'#9B4A7C'}
+  ],
+  intro:'桑葚和草莓一起上，颜色深到发紫。桑葚季节很短（五六月），冷冻桑葚能续，但会掉色。',
+  ingredients:[
+    {name:'桑葚', amount:'100g', note:'冷冻的也行，要挑掉梗'},
+    {name:'草莓', amount:'80g'},
+    {name:'茉莉绿茶', amount:'150ml'},
+    {name:'糖浆', amount:'25ml', note:'桑葚偏酸，糖别省'},
+    {name:'冰块', amount:'约 120g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '桑葚梗要去干净，有梗会涩。',
+    '桑葚汁会把衣服染紫，做的时候穿深色围裙。'
+  ],
+  fidelity:'门店用冷冻桑葚，家庭同款能还原九成，关键在糖量。',
+  steps:[
+    {title:'处理果肉', desc:'桑葚去梗，草莓去蒂切块。', act:'备料',
+     add:[{name:'桑葚果肉', pct:24, color:'#4A1B4E'}]},
+    {title:'压果', desc:'一半果肉压出汁，一半留着。', act:'捣碎',
+     add:[{name:'草莓果肉', pct:16, color:'#E63B4E'}]},
+    {title:'摇匀', desc:'果肉 + 茶汤 150ml + 糖浆 25ml，摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'莓果茶汤', pct:52, color:'#9B4A7C'}]},
+    {title:'装杯', desc:'倒入杯子，补冰块。', act:'铺冰',
+     add:[{name:'冰块', pct:8, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'qingwang', name:'晴王葡萄', category:'果茶', brands:['古茗','喜茶'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#F5F3FF',
+  layers:[
+    {name:'阳光玫瑰果肉', pct:30, color:'#9BC96A'},
+    {name:'葡萄茶汤', pct:58, color:'#B5D98A'},
+    {name:'奶盖', pct:12, color:'#FFF8E7'}
+  ],
+  intro:'晴王就是阳光玫瑰，比巨峰脆、比巨峰甜，还带一股玫瑰香。贵是真贵，但做出来确实不一样。',
+  ingredients:[
+    {name:'阳光玫瑰葡萄', amount:'180g', note:'要无籽的，有籽的要挑掉'},
+    {name:'茉莉绿茶', amount:'150ml'},
+    {name:'糖浆', amount:'12ml', note:'晴王本身甜，糖少放'},
+    {name:'芝士奶盖', amount:'50g', optional:true}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '阳光玫瑰皮薄，不用剥，剥了反而没那股脆劲。',
+    '籽必须挑干净，打碎了整杯苦。'
+  ],
+  fidelity:'古茗用当季阳光玫瑰，家庭买到同款就能完全复刻。',
+  steps:[
+    {title:'处理葡萄', desc:'阳光玫瑰去籽，一半压碎，一半整颗留用。', act:'备料',
+     add:[{name:'葡萄果肉', pct:30, color:'#9BC96A'}]},
+    {title:'摇茶', desc:'茶汤 150ml + 糖浆 12ml 摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'葡萄茶汤', pct:52, color:'#B5D98A'}]},
+    {title:'装杯', desc:'果肉垫底，倒茶汤加冰。', act:'倒入',
+     add:[{name:'冰块', pct:8, color:'#DCEFF6'}]},
+    {title:'铺奶盖', desc:'表面铺芝士奶盖。', act:'铺面',
+     add:[{name:'奶盖', pct:10, color:'#FFF8E7'}]}
+  ]
+},
+
+{
+  id:'xueli-baixiang', name:'雪梨百香果', category:'果茶', brands:['各品牌通用'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:500, bg:'#FFF1F2',
+  layers:[
+    {name:'雪梨粒', pct:20, color:'#E8EBC8'},
+    {name:'百香果籽', pct:12, color:'#D4A017'},
+    {name:'雪梨茶汤', pct:68, color:'#F0F2D8'}
+  ],
+  intro:'秋冬嗓子疼的时候想起来的搭配。雪梨要炖过才润，生雪梨只是脆。',
+  ingredients:[
+    {name:'雪梨', amount:'1 个', note:'或雪梨罐头'},
+    {name:'百香果', amount:'1 个'},
+    {name:'茉莉绿茶', amount:'150ml'},
+    {name:'冰糖', amount:'20g'},
+    {name:'冰块', amount:'约 120g'}
+  ],
+  tools:['锅','摇壶','杯子'],
+  pitfalls:[
+    '生雪梨直接打会涩，先炖 15 分钟。',
+    '百香果最后加，煮过会失去鲜香。'
+  ],
+  fidelity:'门店用雪梨汁 + 鲜果，家庭炖雪梨更润，但费时。',
+  steps:[
+    {title:'炖雪梨', desc:'雪梨去皮切块，加冰糖 20g 和水 100ml 炖 15 分钟。', timer:900, act:'加热',
+     add:[{name:'雪梨粒', pct:22, color:'#E8EBC8'}]},
+    {title:'加百香果', desc:'雪梨连汤放凉，挖入百香果 1 个。', act:'备料',
+     add:[{name:'百香果籽', pct:12, color:'#D4A017'}]},
+    {title:'摇匀', desc:'加茶汤 150ml 和冰块，摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'雪梨茶汤', pct:58, color:'#F0F2D8'}]}
+  ]
+},
+
+{
+  id:'yifang-shuiguo', name:'一芳古早味水果茶', category:'果茶', brands:['一芳'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:600, bg:'#FDF2F8',
+  layers:[
+    {name:'凤梨酱', pct:16, color:'#D9A227'},
+    {name:'苹果片', pct:12, color:'#F5E6C8'},
+    {name:'百香果', pct:10, color:'#D4A017'},
+    {name:'水果茶汤', pct:62, color:'#E8B86A'}
+  ],
+  intro:'台湾一芳的招牌，用凤梨酱打底，加苹果、百香果、金桔。古早味说的是那种「很旧但很实在」的甜。',
+  ingredients:[
+    {name:'凤梨酱', amount:'40g', note:'带果肉的，不是果酱'},
+    {name:'苹果', amount:'半个'},
+    {name:'百香果', amount:'1 个'},
+    {name:'金桔', amount:'2 个', optional:true},
+    {name:'红茶', amount:'200ml'},
+    {name:'糖浆', amount:'10ml', optional:true}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '苹果要切薄片，厚了吸管吸不动。',
+    '凤梨酱本身甜，糖可以不加。'
+  ],
+  fidelity:'一芳用自家凤梨酱，这道是核心。买不到同款的话，风味会差不少。',
+  steps:[
+    {title:'备水果', desc:'苹果切薄片，百香果挖出，金桔挤汁。', act:'备料',
+     add:[{name:'苹果片', pct:12, color:'#F5E6C8'}]},
+    {title:'铺凤梨酱', desc:'凤梨酱 40g 铺杯底。', act:'备料',
+     add:[{name:'凤梨酱', pct:16, color:'#D9A227'}]},
+    {title:'摇匀', desc:'红茶 200ml + 百香果 + 金桔汁，加冰摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'水果茶汤', pct:56, color:'#E8B86A'},{name:'百香果', pct:10, color:'#D4A017'}]},
+    {title:'组装', desc:'茶汤倒进杯子，苹果片贴杯壁。', act:'倒入', add:[]}
+  ]
+},
+
+{
+  id:'qingmei-lvcha', name:'青梅绿茶', category:'果茶', brands:['古茗','茶百道'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:500, bg:'#FEF2F2',
+  layers:[
+    {name:'青梅', pct:18, color:'#8BA04A'},
+    {name:'青梅绿茶', pct:82, color:'#C9D99A'}
+  ],
+  intro:'酸得很清亮，夏天开胃。青梅要腌过的，生的青梅有毒不能直接用。',
+  ingredients:[
+    {name:'腌制青梅', amount:'4 颗', note:'超市蜜饯区有，或用青梅汁 40ml'},
+    {name:'茉莉绿茶', amount:'200ml'},
+    {name:'糖浆', amount:'20ml'},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '生青梅含氰苷，绝对不能直接用，必须用腌制的。',
+    '青梅本身很酸，糖别省。'
+  ],
+  fidelity:'门店用青梅浓缩汁，家庭用腌青梅捣碎风味更真但咸味会重一点。',
+  steps:[
+    {title:'捣青梅', desc:'腌青梅 4 颗捣碎，连核一起。', act:'捣碎',
+     add:[{name:'青梅', pct:18, color:'#8BA04A'}]},
+    {title:'泡绿茶', desc:'85℃ 水 200ml 泡 3 分钟，放凉。', timer:180, act:'冲泡',
+     add:[{name:'绿茶汤', pct:70, color:'#C9D99A'}]},
+    {title:'摇匀', desc:'青梅 + 茶汤 + 糖浆 20ml + 冰，摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'冰块', pct:12, color:'#DCEFF6'}]},
+    {title:'滤出', desc:'滤掉青梅核，倒进杯子。', act:'倒入', add:[]}
+  ]
 }
 
 ]);
