@@ -1043,6 +1043,497 @@ window.DRINKS = (window.DRINKS || []).concat([
      add:[{name:'冰块', pct:12, color:'#DCEFF6'}]},
     {title:'滤出', desc:'滤掉青梅核，倒进杯子。', act:'倒入', add:[]}
   ]
+},
+
+{
+  id:'manbei-youzi', name:'满杯红柚', category:'果茶', brands:['喜茶'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:500, bg:'#FB7185',
+  layers:[
+    {name:'红柚片', pct:18, color:'#F08080'},
+    {name:'红柚果粒', pct:14, color:'#F4A0A0'},
+    {name:'绿妍茶汤', pct:68, color:'#E8D8A8'}
+  ],
+  intro:'喜茶 2016 年首创的那杯，整片红柚贴着杯壁。红柚的白膜必须撕干净，那是苦味来源。',
+  ingredients:[
+    {name:'红心西柚', amount:'1 个', note:'要红心的，颜色才是粉红'},
+    {name:'茉莉绿茶', amount:'180ml', note:'喜茶的绿妍就是这个'},
+    {name:'糖浆', amount:'25ml', note:'红柚偏苦，糖别省'},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '西柚白膜必须撕到只剩果肉，这是这杯成败的关键。',
+    '糖少了会苦到皱眉，25ml 是底线。'
+  ],
+  fidelity:'喜茶用定制绿妍茶底，家用高窨次茉莉绿茶能到九成。',
+  steps:[
+    {title:'处理红柚', desc:'西柚剥出果肉，撕净白膜，留两片完整的切薄片贴杯壁。', act:'备料',
+     add:[{name:'红柚片', pct:18, color:'#F08080'}]},
+    {title:'捣果粒', desc:'其余果肉压散，留颗粒感。', act:'捣碎',
+     add:[{name:'红柚果粒', pct:14, color:'#F4A0A0'}]},
+    {title:'摇茶', desc:'茶汤 180ml + 糖浆 25ml，加冰摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'绿妍茶汤', pct:58, color:'#E8D8A8'}]},
+    {title:'组装', desc:'果粒垫底，倒茶汤，红柚片贴杯壁。', act:'倒入',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'zhizhi-mangmang', name:'芝芝芒芒', category:'果茶', brands:['喜茶'],
+  method:'打沙', difficulty:2, temp:'冰', volume:500, bg:'#FBBF24',
+  layers:[
+    {name:'芒果冰沙', pct:62, color:'#F2A33C'},
+    {name:'芒果丁', pct:12, color:'#F7C24E'},
+    {name:'芝士奶盖', pct:26, color:'#FFF8E7'}
+  ],
+  intro:'芒果打成冰沙，顶上压一层芝士。喜茶的芝芝系列逻辑都一样：果肉打底、冰沙居中、芝士封顶。',
+  ingredients:[
+    {name:'芒果', amount:'250g', note:'大台农，要熟'},
+    {name:'茉莉绿茶', amount:'100ml'},
+    {name:'糖浆', amount:'15ml', optional:true},
+    {name:'芝士奶盖', amount:'60g'},
+    {name:'冰块', amount:'约 180g'}
+  ],
+  tools:['料理机','打泡器','杯子'],
+  pitfalls:[
+    '芒果不甜就别指望糖浆救，糖浆只能补甜不能补香。',
+    '冰量要够，少了打不成沙。'
+  ],
+  fidelity:'喜茶用现切芒果，家庭同款可完全复刻，关键在于芒果成熟度。',
+  steps:[
+    {title:'切芒果', desc:'芒果切块，留一小把切丁。', act:'备料',
+     add:[{name:'芒果丁', pct:14, color:'#F7C24E'}]},
+    {title:'打冰沙', desc:'芒果块 + 茶汤 100ml + 糖浆 + 冰块，打 25 秒。', timer:25, act:'打泥',
+     add:[{name:'芒果冰沙', pct:58, color:'#F2A33C'}]},
+    {title:'打芝士', desc:'芝士奶盖打到顺滑能流动。', timer:60, act:'搅拌',
+     add:[{name:'芝士奶盖', pct:24, color:'#FFF8E7'}]},
+    {title:'组装', desc:'冰沙倒杯，撒芒果丁，最后铺芝士奶盖。', act:'铺面', add:[]}
+  ]
+},
+
+{
+  id:'duorou-yangmei', name:'多肉杨梅', category:'果茶', brands:['喜茶'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#C084FC',
+  layers:[
+    {name:'杨梅果肉', pct:30, color:'#7B1E3A'},
+    {name:'杨梅茶汤', pct:58, color:'#A8365C'},
+    {name:'脆啵啵', pct:12, color:'#C98A45'}
+  ],
+  intro:'初夏限定，只卖一两个月。杨梅要手工去核，一颗颗剥，很费工但值得——核打碎了整杯就废了。',
+  ingredients:[
+    {name:'杨梅', amount:'200g'},
+    {name:'茉莉绿茶', amount:'150ml'},
+    {name:'糖浆', amount:'28ml', note:'杨梅偏酸'},
+    {name:'脆啵啵', amount:'40g', optional:true},
+    {name:'盐', amount:'5g', note:'泡杨梅去虫'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '杨梅必须盐水泡 15 分钟，里面小虫不少。',
+    '核一定要去干净，混进去打碎会苦。'
+  ],
+  fidelity:'喜茶用当季杨梅现剥，家庭同款完全可复刻，就是要花时间。',
+  steps:[
+    {title:'泡杨梅', desc:'盐水泡 15 分钟，冲洗。', timer:900, act:'浸泡', add:[]},
+    {title:'去核取肉', desc:'杨梅手工去核，一半压碎。', act:'捣碎',
+     add:[{name:'杨梅果肉', pct:30, color:'#7B1E3A'}]},
+    {title:'摇茶', desc:'果肉 + 茶汤 150ml + 糖浆 28ml，摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'杨梅茶汤', pct:50, color:'#A8365C'}]},
+    {title:'加脆啵啵', desc:'杯底放脆啵啵，倒茶汤加冰。', act:'倒入',
+     add:[{name:'脆啵啵', pct:10, color:'#C98A45'},{name:'冰块', pct:8, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'zhizhi-taotao', name:'芝芝桃桃', category:'果茶', brands:['喜茶'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#F472B6',
+  layers:[
+    {name:'桃肉', pct:28, color:'#F49AC1'},
+    {name:'桃汁茶汤', pct:48, color:'#FBC4D8'},
+    {name:'芝士奶盖', pct:24, color:'#FFF8E7'}
+  ],
+  intro:'和「多肉桃桃」的区别在茶底：这杯用琥珀兰，带兰花香，比乌龙更清。芝士也更厚。',
+  ingredients:[
+    {name:'水蜜桃', amount:'1.5 个', note:'春雪或红梅，要软熟'},
+    {name:'兰花乌龙', amount:'150ml', note:'或清香型铁观音'},
+    {name:'糖浆', amount:'15ml'},
+    {name:'芝士奶盖', amount:'60g'}
+  ],
+  tools:['摇壶','打泡器','杯子'],
+  pitfalls:[
+    '桃子要软，硬的压不出汁、也切不出形。',
+    '桃肉会氧化变褐，做完一小时内喝完。'
+  ],
+  fidelity:'喜茶用琥珀兰茶底，家用兰花乌龙或铁观音能到八成五。',
+  steps:[
+    {title:'处理桃', desc:'盐搓去绒毛，去皮切块，留几片完整的。', act:'备料',
+     add:[{name:'桃肉', pct:28, color:'#F49AC1'}]},
+    {title:'摇茶', desc:'桃泥 + 茶汤 150ml + 糖浆，摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'桃汁茶汤', pct:46, color:'#FBC4D8'}]},
+    {title:'打芝士', desc:'芝士奶盖打到顺滑。', timer:60, act:'搅拌',
+     add:[{name:'芝士奶盖', pct:22, color:'#FFF8E7'}]},
+    {title:'组装', desc:'桃片贴杯壁，倒茶汤加冰，最后铺芝士。', act:'铺面',
+     add:[{name:'冰块', pct:6, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'bqqi-yangmei', name:'霸气杨梅', category:'果茶', brands:['奈雪的茶'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#A78BFA',
+  layers:[
+    {name:'杨梅果肉', pct:34, color:'#7B1E3A'},
+    {name:'茉莉初雪茶汤', pct:66, color:'#D9A8BC'}
+  ],
+  intro:'奈雪的夏季限定。它比喜茶的多肉杨梅果肉给得更足，几乎半杯都是杨梅，茶底也更香。',
+  ingredients:[
+    {name:'杨梅', amount:'250g', note:'东魁，果大肉厚'},
+    {name:'茉莉初雪', amount:'150ml', note:'或高窨次茉莉绿茶'},
+    {name:'糖浆', amount:'25ml'},
+    {name:'盐', amount:'5g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '杨梅不泡盐水直接用，可能吃到虫。',
+    '果肉要手工去核，机器打的会碎。'
+  ],
+  fidelity:'奈雪用金奖茉莉初雪茶底，家用茉莉绿茶香气会直一些，但果肉量可以照样给足。',
+  steps:[
+    {title:'泡杨梅', desc:'盐水泡 15 分钟。', timer:900, act:'浸泡', add:[]},
+    {title:'手工去核', desc:'一颗颗去核，一半压碎留汁。', act:'捣碎',
+     add:[{name:'杨梅果肉', pct:34, color:'#7B1E3A'}]},
+    {title:'摇茶', desc:'茶汤 150ml + 糖浆 25ml，摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'茉莉初雪茶汤', pct:56, color:'#D9A8BC'}]},
+    {title:'组装', desc:'果肉铺底，倒茶汤加冰。', act:'倒入',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'bqqi-yangzhi', name:'霸气杨枝甘露', category:'果茶', brands:['奈雪的茶'], nocaf:true,
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#FCD34D',
+  layers:[
+    {name:'芒果泥', pct:32, color:'#F2A33C'},
+    {name:'奶冻', pct:18, color:'#FDFBF6'},
+    {name:'椰浆西米', pct:36, color:'#FBF3E0'},
+    {name:'西柚粒', pct:14, color:'#F08080'}
+  ],
+  intro:'比经典杨枝甘露多了一勺**奶冻**，口感更绵。奈雪把它做成了四季常驻，不只是夏天。',
+  ingredients:[
+    {name:'芒果', amount:'150g'},
+    {name:'椰浆', amount:'100ml'},
+    {name:'小西米', amount:'30g'},
+    {name:'西柚', amount:'40g'},
+    {name:'牛奶', amount:'100ml'},
+    {name:'吉利丁片', amount:'3g', note:'做奶冻'},
+    {name:'糖', amount:'15g'}
+  ],
+  tools:['锅','料理机','杯子'],
+  pitfalls:[
+    '奶冻要提前做，冷藏 2 小时才能用。',
+    '西米煮完必须过冷水。'
+  ],
+  fidelity:'奈雪用现制奶冻，家庭用吉利丁做口感接近，就是多花 2 小时。',
+  steps:[
+    {title:'做奶冻', desc:'牛奶 100ml + 糖 + 泡软吉利丁，搅化后冷藏 2 小时切块。', timer:7200, act:'焖',
+     add:[{name:'奶冻', pct:18, color:'#FDFBF6'}]},
+    {title:'煮西米', desc:'水沸下西米煮 15 分钟，焖 8 分钟，过冷水。', timer:900, act:'加热',
+     add:[{name:'西米', pct:20, color:'#FFF6DC'}]},
+    {title:'打芒果泥', desc:'芒果打成泥。', act:'打泥',
+     add:[{name:'芒果泥', pct:32, color:'#F2A33C'}]},
+    {title:'混合', desc:'芒果泥 + 椰浆 + 西米拌匀。', act:'搅拌',
+     add:[{name:'椰浆西米', pct:30, color:'#FBF3E0'}]},
+    {title:'加料', desc:'放奶冻块、撒西柚粒、加冰。', act:'铺面',
+     add:[{name:'西柚粒', pct:12, color:'#F08080'}]}
+  ]
+},
+
+{
+  id:'bqqi-shuimitao', name:'霸气水蜜桃', category:'果茶', brands:['奈雪的茶'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#E879F9',
+  layers:[
+    {name:'桃肉', pct:32, color:'#F49AC1'},
+    {name:'桃汁茶汤', pct:58, color:'#FBC4D8'},
+    {name:'蜜桃冻', pct:10, color:'#FDE8F0'}
+  ],
+  intro:'奈雪的桃子系列只做盛夏两三周，用的是当季春雪和红梅。错过就得等一年。',
+  ingredients:[
+    {name:'水蜜桃', amount:'2 个', note:'软熟的，去皮'},
+    {name:'茉莉初雪', amount:'150ml'},
+    {name:'糖浆', amount:'12ml', note:'桃本身甜，少放'},
+    {name:'白凉粉', amount:'3g', optional:true, note:'做蜜桃冻'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '桃子不熟就别做了，做出来是「有桃味的糖水」。',
+    '桃肉氧化很快，榨完 30 分钟内喝完。'
+  ],
+  fidelity:'奈雪用当季鲜桃，家庭买到好桃就能完全复刻。',
+  steps:[
+    {title:'处理桃', desc:'去皮去核，一半切块压泥，一半留块。', act:'备料',
+     add:[{name:'桃肉', pct:32, color:'#F49AC1'}]},
+    {title:'摇茶', desc:'桃泥 + 茶汤 150ml + 糖浆，摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'桃汁茶汤', pct:54, color:'#FBC4D8'}]},
+    {title:'组装', desc:'倒杯加冰，放桃块和蜜桃冻。', act:'铺面',
+     add:[{name:'蜜桃冻', pct:10, color:'#FDE8F0'}]}
+  ]
+},
+
+{
+  id:'bqqi-lizhi', name:'霸气荔枝', category:'果茶', brands:['奈雪的茶'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#93C5FD',
+  layers:[
+    {name:'荔枝果肉', pct:34, color:'#FBEAF0'},
+    {name:'茉莉初雪茶汤', pct:66, color:'#E5DCC0'}
+  ],
+  intro:'妃子笑荔枝手剥去核，果肉几乎占了一半。荔枝本身够甜，糖可以少放甚至不放。',
+  ingredients:[
+    {name:'妃子笑荔枝', amount:'250g', note:'约 15 颗，去壳去核'},
+    {name:'茉莉初雪', amount:'150ml'},
+    {name:'糖浆', amount:'8ml', optional:true},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '荔枝核要去干净，混进去打碎会苦。',
+    '荔枝甜度高，糖真可以不加。'
+  ],
+  fidelity:'奈雪用妃子笑，家庭买同款就能复刻，核小肉厚的更好剥。',
+  steps:[
+    {title:'剥荔枝', desc:'荔枝去壳去核，留 5 颗完整的，其余压出汁。', act:'备料',
+     add:[{name:'荔枝果肉', pct:34, color:'#FBEAF0'}]},
+    {title:'摇茶', desc:'荔枝汁 + 茶汤 150ml，摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'茉莉初雪茶汤', pct:56, color:'#E5DCC0'}]},
+    {title:'组装', desc:'倒杯加冰，放整颗荔枝肉。', act:'铺面',
+     add:[{name:'冰块', pct:10, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'shoushou-lvping', name:'瘦瘦小绿瓶', category:'果茶', brands:['奈雪的茶'], nocaf:true,
+  method:'打沙', difficulty:1, temp:'冰', volume:500, bg:'#86EFAC',
+  layers:[
+    {name:'羽衣甘蓝', pct:34, color:'#5C8A3C'},
+    {name:'橙苹果汁', pct:66, color:'#F5C45E'}
+  ],
+  intro:'**不含茶、不含咖啡因**，奈雪的健康线。羽衣甘蓝生味很冲，靠橙子和苹果压住。热量极低，当早餐代餐也行。',
+  ingredients:[
+    {name:'羽衣甘蓝', amount:'50g', note:'只取叶片，梗去掉'},
+    {name:'橙子', amount:'1 个'},
+    {name:'苹果', amount:'半个'},
+    {name:'柠檬汁', amount:'5ml', optional:true},
+    {name:'冰块', amount:'约 120g'}
+  ],
+  tools:['料理机','滤网'],
+  pitfalls:[
+    '羽衣甘蓝梗不去会苦，叶子也要挑嫩的。',
+    '打太久会发热氧化，颜色变暗黄。'
+  ],
+  fidelity:'奈雪用冷压工艺，纤维过滤得更细。家庭料理机会粗一些，过筛一次能改善。',
+  steps:[
+    {title:'备菜', desc:'羽衣甘蓝去梗取叶 50g，橙子剥皮，苹果去核。', act:'备料', add:[]},
+    {title:'打汁', desc:'全部加冰块打 30 秒。', timer:30, act:'打泥',
+     add:[{name:'羽衣甘蓝', pct:32, color:'#5C8A3C'}]},
+    {title:'过筛', desc:'用细滤网过一遍，滤掉粗纤维。', act:'冲洗',
+     add:[{name:'橙苹果汁', pct:62, color:'#F5C45E'}]},
+    {title:'装瓶', desc:'倒进瓶子，冷藏 24 小时内喝完。', act:'倒入', add:[]}
+  ]
+},
+
+{
+  id:'lingnan-jiali', name:'岭南佳荔', category:'果茶', brands:['茶颜悦色'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#FEE2E2',
+  layers:[
+    {name:'荔枝果肉', pct:28, color:'#FBEAF0'},
+    {name:'荔枝乌龙', pct:62, color:'#E8D8B0'},
+    {name:'奶沫', pct:10, color:'#FFFFFF'}
+  ],
+  intro:'茶颜「沫泡篇」里的荔枝款。乌龙打底、荔枝果酱提香，顶上那层薄奶沫要趁新鲜喝，15 分钟内会散。',
+  ingredients:[
+    {name:'乌龙茶', amount:'7g'},
+    {name:'热水', amount:'230ml', note:'95℃'},
+    {name:'荔枝', amount:'8 颗', note:'或荔枝果酱 50g'},
+    {name:'鲜奶', amount:'60ml'},
+    {name:'糖', amount:'10g', optional:true}
+  ],
+  tools:['摇壶','杯子','滤网'],
+  pitfalls:[
+    '荔枝够甜就别加糖，荔枝本身糖分很高。',
+    '奶沫要冷淡打，热打出来的会散得快。'
+  ],
+  fidelity:'茶颜用荔枝果酱 + 现剥果肉，家庭用鲜荔枝香气更真但甜度不稳定。',
+  steps:[
+    {title:'泡乌龙', desc:'95℃ 水 230ml 泡 4 分钟，滤掉茶叶。', timer:240, act:'冲泡',
+     add:[{name:'乌龙茶汤', pct:48, color:'#D4C088'}]},
+    {title:'处理荔枝', desc:'荔枝去壳去核，压出汁留果肉。', act:'捣碎',
+     add:[{name:'荔枝果肉', pct:28, color:'#FBEAF0'}]},
+    {title:'摇匀', desc:'果肉 + 茶汤 + 糖，加冰摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'荔枝乌龙', pct:16, color:'#E8D8B0'}]},
+    {title:'打奶沫', desc:'鲜奶 60ml 冷淡打到蓬松，铺表面。', timer:40, act:'铺面',
+     add:[{name:'奶沫', pct:8, color:'#FFFFFF'}]}
+  ]
+},
+
+{
+  id:'yaojing', name:'妖精', category:'果茶', brands:['茶颜悦色'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#7DD3FC',
+  layers:[
+    {name:'红心火龙果', pct:24, color:'#D6296E'},
+    {name:'香橙百香果', pct:58, color:'#F5B840'},
+    {name:'冰块', pct:18, color:'#DCEFF6'}
+  ],
+  intro:'茶颜唯一的水果茶，颜色是红心火龙果染的，粉得很冲。香橙加百香果，酸甜偏酸，饭后喝很解腻。',
+  ingredients:[
+    {name:'红心火龙果', amount:'半个'},
+    {name:'橙子', amount:'1 个'},
+    {name:'百香果', amount:'1 个'},
+    {name:'茉莉绿茶', amount:'150ml'},
+    {name:'糖浆', amount:'25ml'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '火龙果染手染衣服，做的时候小心。',
+    '百香果最后加，摇太狠会把籽打碎发苦。'
+  ],
+  fidelity:'茶颜用鲜果现打，家庭完全可复刻，颜色比门店会更艳一点。',
+  steps:[
+    {title:'备果', desc:'火龙果切块，橙子榨汁，百香果挖出。', act:'备料',
+     add:[{name:'红心火龙果', pct:24, color:'#D6296E'}]},
+    {title:'摇匀', desc:'全部加茶汤 150ml、糖浆 25ml，加冰摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'香橙百香果', pct:52, color:'#F5B840'}]},
+    {title:'装杯', desc:'倒入杯子，补冰块。', act:'铺冰',
+     add:[{name:'冰块', pct:14, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'zhishi-mangmang', name:'芝士芒芒', category:'果茶', brands:['古茗'],
+  method:'打沙', difficulty:2, temp:'冰', volume:500, bg:'#F59E0B',
+  layers:[
+    {name:'芒果冰沙', pct:60, color:'#F2A33C'},
+    {name:'芒果丁', pct:14, color:'#F7C24E'},
+    {name:'芝士奶盖', pct:26, color:'#FFF8E7'}
+  ],
+  intro:'和喜茶的芝芝芒芒结构几乎一样，古茗的版本糖更少、奶盖更咸。性价比更高，做法完全可以互通。',
+  ingredients:[
+    {name:'芒果', amount:'250g'},
+    {name:'茉莉绿茶', amount:'100ml'},
+    {name:'糖浆', amount:'12ml'},
+    {name:'奶油奶酪', amount:'30g'},
+    {name:'淡奶油', amount:'60ml'},
+    {name:'盐', amount:'1.5g'}
+  ],
+  tools:['料理机','打泡器','杯子'],
+  pitfalls:[
+    '奶盖那撮盐不能省，咸才能托住芒果的甜。',
+    '芒果不熟就别做了，加糖也救不回来。'
+  ],
+  fidelity:'古茗用现切芒果 + 自制奶盖，家庭同款可完全复刻。',
+  steps:[
+    {title:'切芒果', desc:'芒果切块，留一把切丁。', act:'备料',
+     add:[{name:'芒果丁', pct:14, color:'#F7C24E'}]},
+    {title:'打冰沙', desc:'芒果块 + 茶汤 + 糖浆 + 冰，打 25 秒。', timer:25, act:'打泥',
+     add:[{name:'芒果冰沙', pct:56, color:'#F2A33C'}]},
+    {title:'打咸芝士', desc:'奶酪软化 + 淡奶油 + 盐打发。', timer:80, act:'搅拌',
+     add:[{name:'芝士奶盖', pct:24, color:'#FFF8E7'}]},
+    {title:'组装', desc:'冰沙倒杯，撒芒果丁，铺芝士。', act:'铺面', add:[]}
+  ]
+},
+
+{
+  id:'qingti-moli', name:'青提茉莉', category:'果茶', brands:['古茗'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:500, bg:'#4ADE80',
+  layers:[
+    {name:'青提果肉', pct:28, color:'#A8D060'},
+    {name:'茉莉茶汤', pct:64, color:'#D4E89E'},
+    {name:'冰块', pct:8, color:'#DCEFF6'}
+  ],
+  intro:'比「仙仙青提」更简单的一杯，没有椰果没有奶盖，就是青提和茉莉。青提要够脆才好吃。',
+  ingredients:[
+    {name:'青提', amount:'150g', note:'阳光玫瑰或普通青提都行'},
+    {name:'茉莉绿茶', amount:'180ml'},
+    {name:'糖浆', amount:'15ml'},
+    {name:'冰块', amount:'约 150g'}
+  ],
+  tools:['摇壶','杯子'],
+  pitfalls:[
+    '青提籽要去干净，打碎会苦。',
+    '青提皮薄的不用剥，厚的要剥，否则嚼不动。'
+  ],
+  fidelity:'古茗用当季青提，家庭完全可复刻。',
+  steps:[
+    {title:'处理青提', desc:'青提去籽，一半对半切，一半压汁。', act:'备料',
+     add:[{name:'青提果肉', pct:28, color:'#A8D060'}]},
+    {title:'摇茶', desc:'果肉 + 茶汤 180ml + 糖浆，摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'茉莉茶汤', pct:58, color:'#D4E89E'}]},
+    {title:'装杯', desc:'倒入杯子补冰。', act:'铺冰',
+     add:[{name:'冰块', pct:8, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'zhishi-putao', name:'芝士葡萄', category:'果茶', brands:['茶百道'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#EDE9FE',
+  layers:[
+    {name:'葡萄果肉', pct:28, color:'#4A2A5C'},
+    {name:'葡萄茶汤', pct:46, color:'#7B4A8C'},
+    {name:'芝士奶盖', pct:26, color:'#FFF8E7'}
+  ],
+  intro:'茶百道版的葡萄芝士，比喜茶的更便宜、果肉切得更碎。要好看的话葡萄要剥得干净。',
+  ingredients:[
+    {name:'巨峰葡萄', amount:'150g'},
+    {name:'茉莉绿茶', amount:'150ml'},
+    {name:'糖浆', amount:'18ml'},
+    {name:'奶油奶酪', amount:'30g'},
+    {name:'淡奶油', amount:'55ml'},
+    {name:'盐', amount:'1g'}
+  ],
+  tools:['摇壶','打泡器','杯子'],
+  pitfalls:[
+    '葡萄皮要剥干净，深紫色会染整杯，卖相差。',
+    '奶盖别打太稠，稠了会挂不住。'
+  ],
+  fidelity:'茶百道用鲜葡萄 + 自制奶盖，家庭同款可还原九成。',
+  steps:[
+    {title:'剥葡萄', desc:'葡萄去皮去籽，一半压碎。', act:'捣碎',
+     add:[{name:'葡萄果肉', pct:28, color:'#4A2A5C'}]},
+    {title:'摇茶', desc:'茶汤 + 糖浆摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'葡萄茶汤', pct:42, color:'#7B4A8C'}]},
+    {title:'打奶盖', desc:'奶酪 + 淡奶油 + 盐打发。', timer:70, act:'搅拌',
+     add:[{name:'芝士奶盖', pct:24, color:'#FFF8E7'}]},
+    {title:'组装', desc:'果肉垫底，倒茶汤加冰，铺奶盖。', act:'铺面',
+     add:[{name:'冰块', pct:6, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'mitao-sijichun', name:'蜜桃四季春', category:'果茶', brands:['蜜雪冰城'],
+  method:'摇匀', difficulty:1, temp:'冰', volume:500, bg:'#FB923C',
+  layers:[
+    {name:'桃肉', pct:22, color:'#F49AC1'},
+    {name:'四季春茶', pct:70, color:'#D9C48A'},
+    {name:'冰块', pct:8, color:'#DCEFF6'}
+  ],
+  intro:'蜜雪的平价果茶，四块钱能喝到四季春加桃肉。桃肉是糖水桃，不是鲜桃，但胜在便宜稳定。',
+  ingredients:[
+    {name:'四季春茶叶', amount:'7g'},
+    {name:'热水', amount:'240ml', note:'95℃'},
+    {name:'水蜜桃', amount:'1 个', note:'或糖水桃罐头 80g'},
+    {name:'糖浆', amount:'22ml', note:'用罐头桃可减到 10ml'}
+  ],
+  tools:['摇壶','杯子','滤网'],
+  pitfalls:[
+    '四季春要 95℃ 泡，85℃ 出不来那股兰花香。',
+    '桃罐头本身甜，糖要减。'
+  ],
+  fidelity:'蜜雪用桃罐头 + 茶汤，家庭用鲜桃更香但颜色会淡。',
+  steps:[
+    {title:'泡四季春', desc:'95℃ 水 240ml 泡 5 分钟，滤掉茶叶，放凉。', timer:300, act:'冲泡',
+     add:[{name:'四季春茶', pct:66, color:'#D9C48A'}]},
+    {title:'切桃', desc:'桃去皮切小块，一半压汁。', act:'备料',
+     add:[{name:'桃肉', pct:22, color:'#F49AC1'}]},
+    {title:'摇匀', desc:'加糖浆 22ml、冰块，摇 10 秒。', timer:10, act:'摇匀',
+     add:[{name:'冰块', pct:8, color:'#DCEFF6'}]}
+  ]
 }
 
 ]);

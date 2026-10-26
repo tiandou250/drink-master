@@ -452,6 +452,109 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'倒入挤奶油', desc:'倒进挂了壁的杯子，表面挤打发淡奶油。', timer:45, act:'铺面',
      add:[{name:'奶油顶', pct:12, color:'#FFFFFF'}]}
   ]
+},
+
+{
+  id:'zhizhi-lvyan', name:'芝芝绿妍茶后', category:'特调', brands:['喜茶'],
+  method:'打泡', difficulty:2, temp:'冰', volume:500, bg:'#C7D2FE',
+  layers:[
+    {name:'绿妍茶汤', pct:72, color:'#DCE3B8'},
+    {name:'芝芝云顶', pct:27, color:'#FFF8E7'},
+    {name:'抹茶粉', pct:1, color:'#7BA05B'}
+  ],
+  intro:'**2012 年喜茶的第一杯芝士茶**，前身叫「奶盐绿茶」。就是它开创「奶盖茶」这个品类，现在满街的芝士茶都是它的后代。',
+  ingredients:[
+    {name:'绿妍茶叶', amount:'7g', note:'或高窨次茉莉绿茶'},
+    {name:'热水', amount:'240ml', note:'85℃'},
+    {name:'奶油奶酪', amount:'30g'},
+    {name:'淡奶油', amount:'60ml'},
+    {name:'牛奶', amount:'30ml'},
+    {name:'糖', amount:'10g'},
+    {name:'盐', amount:'1.5g'},
+    {name:'抹茶粉', amount:'1g', optional:true, note:'撒顶用'}
+  ],
+  tools:['打泡器','杯子','滤网'],
+  pitfalls:[
+    '奶盖必须有那一撮盐，这是「芝士」和「奶油」的分界线。',
+    '喝法是不用吸管，直接对杯口抿，同时吃到奶盖和茶。'
+  ],
+  fidelity:'喜茶用无奶精芝芝云顶（动物奶油 + 真牛乳），家庭版做法一致，还原度能到九成。',
+  steps:[
+    {title:'泡绿妍', desc:'85℃ 水 240ml 泡 3 分钟，滤掉茶叶，加冰放凉。', timer:180, act:'冲泡',
+     add:[{name:'绿妍茶汤', pct:70, color:'#DCE3B8'}]},
+    {title:'软化奶酪', desc:'奶油奶酪 30g 室温软化 20 分钟。', act:'备料', add:[]},
+    {title:'打芝芝云顶', desc:'奶酪 + 淡奶油 60ml + 牛奶 30ml + 糖 + 盐，打到顺滑能流动。', timer:90, act:'搅拌',
+     add:[{name:'芝芝云顶', pct:27, color:'#FFF8E7'}]},
+    {title:'铺顶撒粉', desc:'奶盖厚厚铺在茶上，筛一点抹茶粉。', act:'铺面',
+     add:[{name:'抹茶粉', pct:1, color:'#7BA05B'}]}
+  ]
+},
+
+{
+  id:'zhizhi-jinfeng', name:'芝芝金凤茶王', category:'特调', brands:['喜茶'],
+  method:'打泡', difficulty:2, temp:'冰', volume:500, bg:'#BFDBFE',
+  layers:[
+    {name:'金凤茶汤', pct:70, color:'#B08850'},
+    {name:'芝芝云顶', pct:29, color:'#FFF8E7'},
+    {name:'抹茶粉', pct:1, color:'#7BA05B'}
+  ],
+  intro:'和芝芝绿妍是同一个结构，茶底换成金凤茶王——一支炭焙乌龙，带焦糖香。茶底一换，整杯气质完全变了。',
+  ingredients:[
+    {name:'金凤茶王', amount:'7g', note:'或炭焙乌龙'},
+    {name:'热水', amount:'240ml', note:'95℃'},
+    {name:'奶油奶酪', amount:'30g'},
+    {name:'淡奶油', amount:'60ml'},
+    {name:'牛奶', amount:'30ml'},
+    {name:'糖', amount:'10g'},
+    {name:'盐', amount:'1.5g'}
+  ],
+  tools:['打泡器','杯子','滤网'],
+  pitfalls:[
+    '炭焙乌龙要沸水泡，85℃ 出不来焦糖香。',
+    '茶汤必须放凉再铺奶盖，热茶会把奶盖冲散。'
+  ],
+  fidelity:'喜茶用定制金凤茶王，家用炭焙乌龙能到八成五，焦香会更直。',
+  steps:[
+    {title:'泡乌龙', desc:'95℃ 水 240ml 泡 4 分钟，滤掉茶叶，加冰放凉。', timer:240, act:'冲泡',
+     add:[{name:'金凤茶汤', pct:68, color:'#B08850'}]},
+    {title:'打芝芝云顶', desc:'奶酪软化 + 淡奶油 + 牛奶 + 糖 + 盐，打顺滑。', timer:90, act:'搅拌',
+     add:[{name:'芝芝云顶', pct:29, color:'#FFF8E7'}]},
+    {title:'铺顶撒粉', desc:'奶盖铺满表面，筛抹茶粉。', act:'铺面',
+     add:[{name:'抹茶粉', pct:1, color:'#7BA05B'}]}
+  ]
+},
+
+{
+  id:'shengda-yeye', name:'生打椰椰奶冻', category:'特调', brands:['喜茶'],
+  method:'直调', difficulty:2, temp:'冰', volume:500, bg:'#E0F2FE',
+  layers:[
+    {name:'椰奶冻', pct:24, color:'#FDFBF6'},
+    {name:'脆波波', pct:10, color:'#F0E0C0'},
+    {name:'生椰乳', pct:66, color:'#F5EDE0'}
+  ],
+  intro:'2021 年椰系大爆发时上的产品。白得没什么颜色，但底下藏着大块椰奶冻和脆波波，一脆一糯。',
+  ingredients:[
+    {name:'椰子水', amount:'150ml', note:'取椰肉打浆用'},
+    {name:'椰肉', amount:'80g', note:'或浓椰浆 100ml'},
+    {name:'牛奶', amount:'100ml'},
+    {name:'吉利丁片', amount:'5g', note:'做椰奶冻'},
+    {name:'脆波波', amount:'40g', optional:true},
+    {name:'糖', amount:'15g'}
+  ],
+  tools:['料理机','锅','杯子'],
+  pitfalls:[
+    '椰奶冻要提前 2 小时做，急不得。',
+    '生椰乳要现打现用，放久了会分层。'
+  ],
+  fidelity:'喜茶用现打生椰乳，家庭用浓椰浆 + 椰子水调配最接近，纯椰浆会太浓。',
+  steps:[
+    {title:'做椰奶冻', desc:'椰浆 50ml + 牛奶 100ml + 糖 + 泡软吉利丁，搅化冷藏 2 小时切块。', timer:7200, act:'焖',
+     add:[{name:'椰奶冻', pct:24, color:'#FDFBF6'}]},
+    {title:'打生椰乳', desc:'椰肉 80g + 椰子水 150ml + 糖，打成乳白色。', timer:30, act:'打泥',
+     add:[{name:'生椰乳', pct:62, color:'#F5EDE0'}]},
+    {title:'组装', desc:'杯底放椰奶冻和脆波波，倒生椰乳加冰。', act:'倒入',
+     add:[{name:'脆波波', pct:10, color:'#F0E0C0'},{name:'冰块', pct:4, color:'#DCEFF6'}]}
+  ]
 }
 
 ]);

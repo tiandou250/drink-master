@@ -349,6 +349,135 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'摇匀', desc:'加茶汤 200ml、糖浆 28ml、冰，摇 12 秒。', timer:12, act:'摇匀',
      add:[{name:'绿茶汤', pct:62, color:'#D4E3A0'}]}
   ]
+},
+
+{
+  id:'moli-shouda', name:'茉莉手打柠檬茶', category:'柠檬茶', brands:['柠季'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#6EE7B7',
+  layers:[
+    {name:'柠檬片', pct:15, color:'#E8D96A'},
+    {name:'茉莉茶汤', pct:85, color:'#DCE3B8'}
+  ],
+  intro:'柠季的茉莉款，用的是福鼎大白茶连窨五次的茉莉——**每 100 斤茶要窨进 140 斤横县鲜茉莉**，所以花香特别高扬。',
+  ingredients:[
+    {name:'茉莉绿茶', amount:'9g', note:'窨制次数越多越好，至少三窨'},
+    {name:'热水', amount:'200ml', note:'85℃'},
+    {name:'香水柠檬', amount:'1 个'},
+    {name:'糖浆', amount:'32ml'}
+  ],
+  tools:['摇壶','捣棒','滤网'],
+  pitfalls:[
+    '茶要泡浓，柠季的标准是茶多水少——9g 配 200ml。',
+    '香水柠檬捶 6 下就够，捶多了皮油发苦。'
+  ],
+  fidelity:'柠季用五次窨花的高窨茉莉，家庭买三窨的会淡一层，把茶量再多 1g。',
+  steps:[
+    {title:'泡茶', desc:'85℃ 水 200ml 泡 3 分钟，滤掉茶叶，完全放凉。', timer:180, act:'冲泡',
+     add:[{name:'茉莉茶汤', pct:82, color:'#DCE3B8'}]},
+    {title:'捶柠檬', desc:'香水柠檬切片去籽，捶 6 下。', act:'捣碎',
+     add:[{name:'柠檬片', pct:15, color:'#E8D96A'}]},
+    {title:'摇匀', desc:'加糖浆 32ml、冰块、冷茶汤，摇 15 秒。', timer:15, act:'摇匀',
+     add:[{name:'冰块', pct:4, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'mei-fannao', name:'梅烦恼', category:'柠檬茶', brands:['柠季'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#A3E635',
+  layers:[
+    {name:'话梅', pct:12, color:'#7A2E1E'},
+    {name:'柠檬片', pct:14, color:'#E8D96A'},
+    {name:'红茶汤', pct:74, color:'#C9A86A'}
+  ],
+  intro:'名字是个谐音梗——「梅烦恼」就是没烦恼。话梅带来咸和酸，柠檬带来酸和香，一杯里**酸咸甜三种味道**打成一团。',
+  ingredients:[
+    {name:'话梅', amount:'5 颗', note:'咸话梅，不是甜梅子'},
+    {name:'香水柠檬', amount:'1 个'},
+    {name:'锡兰红茶', amount:'8g'},
+    {name:'热水', amount:'200ml', note:'95℃'},
+    {name:'糖浆', amount:'28ml'}
+  ],
+  tools:['摇壶','捣棒','滤网'],
+  pitfalls:[
+    '话梅要用咸的，甜话梅做出来是另一杯东西。',
+    '话梅别捶碎，整颗泡出味就行，捶碎了核会发苦。'
+  ],
+  fidelity:'柠季用定制话梅酱，家庭用整颗咸话梅泡出的味道更立体，但咸度不好控。',
+  steps:[
+    {title:'泡茶', desc:'95℃ 水 200ml 泡 5 分钟，滤掉茶叶，放凉。', timer:300, act:'冲泡',
+     add:[{name:'红茶汤', pct:72, color:'#C9A86A'}]},
+    {title:'泡话梅', desc:'话梅 5 颗用 30ml 温茶水泡 10 分钟出味。', timer:600, act:'浸泡',
+     add:[{name:'话梅', pct:12, color:'#7A2E1E'}]},
+    {title:'捶柠檬', desc:'柠檬切片捶 6 下。', act:'捣碎',
+     add:[{name:'柠檬片', pct:14, color:'#E8D96A'}]},
+    {title:'摇匀', desc:'全部加糖浆 28ml 和冰，摇 15 秒。', timer:15, act:'摇匀',
+     add:[{name:'冰块', pct:4, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'tailv', name:'泰绿柠檬茶', category:'柠檬茶', brands:['柠季'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#84CC16',
+  layers:[
+    {name:'柠檬片', pct:16, color:'#C9D86A'},
+    {name:'泰绿茶汤', pct:84, color:'#8FAE4A'}
+  ],
+  intro:'泰式绿茶本身就带香兰叶的甜香，颜色是天然的翠绿。加抹茶是为了把绿压得更深、更「上头」。',
+  ingredients:[
+    {name:'泰式绿茶', amount:'8g', note:'泰国手标绿茶'},
+    {name:'抹茶粉', amount:'2g', note:'提色提味'},
+    {name:'热水', amount:'200ml', note:'90℃'},
+    {name:'香水柠檬', amount:'1 个'},
+    {name:'糖浆', amount:'35ml'}
+  ],
+  tools:['摇壶','捣棒','滤网'],
+  pitfalls:[
+    '泰绿茶很细，要过滤两遍才不牙碜。',
+    '这杯要够绿才好看，抹茶别省。'
+  ],
+  fidelity:'柠季用泰式绿茶底 + 抹茶，家庭买手标绿茶就能还原九成。',
+  steps:[
+    {title:'煮泰茶', desc:'90℃ 水 200ml 泡 5 分钟，加抹茶粉搅匀，过滤两遍。', timer:300, act:'冲泡',
+     add:[{name:'泰绿茶汤', pct:80, color:'#8FAE4A'}]},
+    {title:'捶柠檬', desc:'柠檬切片去籽，捶 6 下。', act:'捣碎',
+     add:[{name:'柠檬片', pct:16, color:'#C9D86A'}]},
+    {title:'摇匀', desc:'加糖浆 35ml、冰块，摇 15 秒。', timer:15, act:'摇匀',
+     add:[{name:'冰块', pct:4, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'xiaobozi-tianjiu', name:'小钵子甜酒柠檬茶', category:'柠檬茶', brands:['柠季'],
+  method:'摇匀', difficulty:2, temp:'冰', volume:500, bg:'#FEFCE8',
+  layers:[
+    {name:'甜酒酿', pct:22, color:'#F5EBDC'},
+    {name:'柠檬片', pct:14, color:'#E8D96A'},
+    {name:'绿茶汤', pct:64, color:'#D4E3A0'}
+  ],
+  intro:'长沙街头的「小钵子甜酒」装进柠檬茶里。**含微量酒精**，酒酿的甜糯和柠檬的酸撞在一起，很长沙。',
+  ingredients:[
+    {name:'甜酒酿', amount:'100g', note:'长沙小钵子甜酒，或超市酒酿'},
+    {name:'香水柠檬', amount:'1 个'},
+    {name:'茉莉绿茶', amount:'7g'},
+    {name:'热水', amount:'200ml', note:'85℃'},
+    {name:'糖浆', amount:'20ml'}
+  ],
+  tools:['摇壶','捣棒','杯子'],
+  pitfalls:[
+    '酒酿不能摇，摇了会碎成糊，最后加。',
+    '含微量酒精，小孩孕妇别喝。'
+  ],
+  fidelity:'长沙用本地小钵子甜酒，外地用超市酒酿酒香会淡，但米粒口感接近。',
+  steps:[
+    {title:'泡茶', desc:'85℃ 水 200ml 泡 3 分钟，放凉。', timer:180, act:'冲泡',
+     add:[{name:'绿茶汤', pct:64, color:'#D4E3A0'}]},
+    {title:'捶柠檬', desc:'柠檬切片捶 6 下。', act:'捣碎',
+     add:[{name:'柠檬片', pct:14, color:'#E8D96A'}]},
+    {title:'摇匀', desc:'柠檬 + 茶汤 + 糖浆 20ml，加冰摇 12 秒。', timer:12, act:'摇匀',
+     add:[{name:'冰块', pct:4, color:'#DCEFF6'}]},
+    {title:'加酒酿', desc:'摇好的茶汤倒进杯子，最后舀入甜酒酿，别搅。', act:'铺面',
+     add:[{name:'甜酒酿', pct:18, color:'#F5EBDC'}]}
+  ]
 }
 
 ]);

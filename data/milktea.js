@@ -945,6 +945,419 @@ window.DRINKS = (window.DRINKS || []).concat([
     {title:'加奶盖', desc:'表面铺打发的淡奶油。', timer:40, act:'铺面',
      add:[{name:'奶盖', pct:12, color:'#FFFFFF'}]}
   ]
+},
+
+{
+  id:'kao-heitang', name:'烤黑糖波波牛乳', category:'奶茶', brands:['喜茶'],
+  method:'需煮', difficulty:2, temp:'冷热皆可', volume:500, bg:'#FBBF24',
+  layers:[
+    {name:'黑糖波波', pct:24, color:'#3A2418'},
+    {name:'嫣红牛乳', pct:70, color:'#D9C4A8'},
+    {name:'奶盖', pct:6, color:'#FFFFFF'}
+  ],
+  intro:'喜茶 2012 年首创的那杯，是从「布蕾珍珠奶茶」迭代出来的。黑糖波波要**慢熬 65 分钟**，比普通珍珠更软更糯。',
+  ingredients:[
+    {name:'黑糖波波', amount:'80g', note:'买现成的，或按「黑糖珍珠」基底自煮但煮久一点'},
+    {name:'嫣红茶', amount:'150ml', note:'或浓泡锡兰红茶'},
+    {name:'鲜牛乳', amount:'200ml'},
+    {name:'黑糖浆', amount:'20ml'},
+    {name:'淡奶油', amount:'30ml', optional:true}
+  ],
+  tools:['锅','杯子'],
+  pitfalls:[
+    '波波要熬够时间才够软，普通珍珠煮 25 分钟，这个要更久。',
+    '这一杯奶味很浓，不喜厚重口感的人会嫌腻。'
+  ],
+  fidelity:'喜茶用定制嫣红茶底 + 无奶精真牛乳，家庭用锡兰红茶 + 鲜奶能到八成五，茶香会直一些。',
+  steps:[
+    {title:'煮波波', desc:'水沸下黑糖波波，中火煮 30 分钟，焖 10 分钟。', timer:1800, act:'加热',
+     add:[{name:'波波', pct:24, color:'#3A2418'}]},
+    {title:'拌黑糖', desc:'捞出过冷水，趁热拌 20ml 黑糖浆。', act:'搅拌', add:[]},
+    {title:'泡茶', desc:'红茶 150ml 泡好放凉。', timer:240, act:'冲泡',
+     add:[{name:'嫣红茶', pct:30, color:'#A8703A'}]},
+    {title:'加奶', desc:'茶汤 + 鲜牛乳 200ml 混匀。', act:'倒入',
+     add:[{name:'嫣红牛乳', pct:40, color:'#D9C4A8'}]},
+    {title:'组装', desc:'波波垫底，倒奶茶，表面可加一层薄奶盖。', act:'铺面',
+     add:[{name:'冰块', pct:4, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'houhou-yuni', name:'厚厚芋泥宝藏茶', category:'奶茶', brands:['奈雪的茶'],
+  method:'需煮', difficulty:2, temp:'热', volume:500, bg:'#F97316',
+  layers:[
+    {name:'厚芋泥', pct:34, color:'#C9A0DC'},
+    {name:'芋圆', pct:12, color:'#E0C7A8'},
+    {name:'奶茶', pct:44, color:'#C9A27E'},
+    {name:'奶盖', pct:10, color:'#FFFFFF'}
+  ],
+  intro:'奈雪秋冬的限定款，用槟榔芋做，芋泥厚到能立住勺子。冬天热饮更醇，一杯下去能当半顿饭。',
+  ingredients:[
+    {name:'槟榔芋', amount:'250g', note:'比荔浦芋更粉更香'},
+    {name:'鲜奶', amount:'200ml'},
+    {name:'糖', amount:'30g'},
+    {name:'淡奶油', amount:'40ml'},
+    {name:'芋圆', amount:'50g', optional:true},
+    {name:'红茶', amount:'100ml'}
+  ],
+  tools:['蒸锅','锅','料理机'],
+  pitfalls:[
+    '芋头要蒸不要煮，煮进去水就稀了。',
+    '芋泥要打得比平时厚，这杯主打「厚」。'
+  ],
+  fidelity:'奈雪用槟榔芋冷链配送，家庭在北方难买，荔浦芋替代也可但香气差一层。',
+  steps:[
+    {title:'蒸芋头', desc:'芋头去皮切块，蒸 30 分钟到透。', timer:1800, act:'加热', add:[]},
+    {title:'打厚芋泥', desc:'芋头 + 糖 20g + 淡奶油 40ml + 少量牛奶，打到浓稠能立勺。', act:'捣碎',
+     add:[{name:'厚芋泥', pct:34, color:'#C9A0DC'}]},
+    {title:'煮芋圆', desc:'芋圆煮到浮起再过冷水。', timer:480, act:'加热',
+     add:[{name:'芋圆', pct:12, color:'#E0C7A8'}]},
+    {title:'调奶茶', desc:'红茶 100ml + 剩的鲜奶 + 糖 10g，加热。', act:'搅拌',
+     add:[{name:'奶茶', pct:42, color:'#C9A27E'}]},
+    {title:'组装', desc:'芋泥抹杯壁，放芋圆，冲入热奶茶，铺奶盖。', act:'铺面',
+     add:[{name:'奶盖', pct:10, color:'#FFFFFF'}]}
+  ]
+},
+
+{
+  id:'jinse-shanmai', name:'金色山脉珍珠奶茶', category:'奶茶', brands:['奈雪的茶'],
+  method:'需煮', difficulty:2, temp:'冷热皆可', volume:500, bg:'#EA580C',
+  layers:[
+    {name:'黑糖珍珠', pct:22, color:'#3A2418'},
+    {name:'奶茶', pct:78, color:'#D4B896'}
+  ],
+  intro:'「宝藏鲜奶茶」系列的基础款。金色山脉是一支带淡花香的茶底，比普通红茶更柔，珍珠用黑糖的。',
+  ingredients:[
+    {name:'金色山脉茶', amount:'7g', note:'或金萱乌龙 + 少量红茶拼配'},
+    {name:'热水', amount:'230ml', note:'95℃'},
+    {name:'鲜牛乳', amount:'150ml'},
+    {name:'黑糖珍珠', amount:'70g'},
+    {name:'糖', amount:'15g'}
+  ],
+  tools:['锅','杯子','滤网'],
+  pitfalls:[
+    '茶底要泡 5 分钟，淡花香需要时间出来。',
+    '珍珠最后放，泡久了会软塌。'
+  ],
+  fidelity:'奈雪用定制金色山脉茶，家用金萱乌龙能模拟那股奶香，但花香的层次会少。',
+  steps:[
+    {title:'煮珍珠', desc:'水沸下珍珠煮 25 分钟，焖 10 分钟，过冷水。', timer:1500, act:'加热',
+     add:[{name:'黑糖珍珠', pct:22, color:'#3A2418'}]},
+    {title:'泡茶', desc:'95℃ 水 230ml 泡 5 分钟，滤掉茶叶。', timer:300, act:'冲泡',
+     add:[{name:'茶汤', pct:36, color:'#B08850'}]},
+    {title:'调奶茶', desc:'茶汤 + 鲜牛乳 150ml + 糖 15g 混匀。', act:'倒入',
+     add:[{name:'奶茶', pct:36, color:'#D4B896'}]},
+    {title:'组装', desc:'珍珠垫底，倒奶茶，热饮加热、冰饮加冰。', act:'倒入',
+     add:[{name:'冰块', pct:6, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'baitao-ye', name:'白桃乌龙椰奶茶', category:'奶茶', brands:['柠季'],
+  method:'直调', difficulty:1, temp:'冰', volume:500, bg:'#FFFBEB',
+  layers:[
+    {name:'白桃乌龙', pct:44, color:'#DCC8A0'},
+    {name:'椰奶', pct:56, color:'#FBF3E0'}
+  ],
+  intro:'柠季不只做柠檬茶，也有椰奶系列。白桃乌龙配椰奶，桃香、乌龙、椰香三层叠着来，意外地顺。',
+  ingredients:[
+    {name:'白桃乌龙', amount:'7g'},
+    {name:'热水', amount:'200ml', note:'90℃'},
+    {name:'厚椰乳', amount:'150ml', note:'冷藏'},
+    {name:'糖浆', amount:'15ml'},
+    {name:'冰块', amount:'约 120g'}
+  ],
+  tools:['杯子','滤网'],
+  pitfalls:[
+    '椰乳要冷藏，常温的会浮油。',
+    '乌龙别泡太久，会压住桃香。'
+  ],
+  fidelity:'柠季用定制白桃乌龙 + 椰乳基底，家庭同款可还原八成五。',
+  steps:[
+    {title:'泡乌龙', desc:'90℃ 水 200ml 泡 4 分钟，滤掉茶叶。', timer:240, act:'冲泡',
+     add:[{name:'白桃乌龙', pct:44, color:'#DCC8A0'}]},
+    {title:'降温', desc:'加冰搅凉。', act:'降温',
+     add:[{name:'冰块', pct:8, color:'#DCEFF6'}]},
+    {title:'加椰乳', desc:'倒厚椰乳 150ml、糖浆 15ml，轻搅。', act:'倒入',
+     add:[{name:'椰奶', pct:48, color:'#FBF3E0'}]}
+  ]
+},
+
+{
+  id:'qianqian-makalong', name:'芊芊马卡龙', category:'奶茶', brands:['茶颜悦色'],
+  method:'分层', difficulty:2, temp:'冰', volume:500, bg:'#FCE7F3',
+  layers:[
+    {name:'可可红茶', pct:50, color:'#5A3A22'},
+    {name:'鲜奶', pct:26, color:'#FDFBF6'},
+    {name:'奶油顶', pct:14, color:'#FFFFFF'},
+    {name:'马卡龙碎', pct:10, color:'#F4A0C0'}
+  ],
+  intro:'茶颜里最甜的一杯，可可加红茶，喝起来像阿华田牛奶。顶上的马卡龙碎是亮点，彩色很好看。',
+  ingredients:[
+    {name:'锡兰红茶', amount:'6g'},
+    {name:'无糖可可粉', amount:'10g'},
+    {name:'热水', amount:'220ml', note:'95℃'},
+    {name:'鲜奶', amount:'120ml'},
+    {name:'淡奶油', amount:'60ml'},
+    {name:'糖', amount:'20g'},
+    {name:'马卡龙', amount:'1 个', note:'掰碎撒顶'}
+  ],
+  tools:['打泡器','杯子','滤网'],
+  pitfalls:[
+    '可可味很浓，会把红茶味盖住，所以红茶要泡浓一点补回来。',
+    '糖别省，这杯本来定位就是甜品。'
+  ],
+  fidelity:'茶颜用可可基底酱，家庭用可可粉 + 红茶能到八成，甜度自己控。',
+  steps:[
+    {title:'泡红茶', desc:'95℃ 水 220ml 泡 4 分钟，滤掉茶叶。', timer:240, act:'冲泡',
+     add:[{name:'红茶汤', pct:38, color:'#8B5A2B'}]},
+    {title:'调可可', desc:'可可粉 10g + 糖 20g 用少量热茶汤调成糊，倒回茶汤搅匀。', act:'搅拌',
+     add:[{name:'可可红茶', pct:34, color:'#5A3A22'}]},
+    {title:'加奶', desc:'倒鲜奶 120ml，加冰搅匀。', act:'倒入',
+     add:[{name:'鲜奶', pct:20, color:'#FDFBF6'}]},
+    {title:'打奶油撒马卡龙', desc:'淡奶油打到八分发盖顶，撒掰碎的马卡龙。', timer:60, act:'铺面',
+     add:[{name:'奶油顶', pct:10, color:'#FFFFFF'},{name:'马卡龙碎', pct:8, color:'#F4A0C0'}]}
+  ]
+},
+
+{
+  id:'yanshuiya', name:'盐水鸭奶茶', category:'奶茶', brands:['马伍旺饮料厂'],
+  method:'分层', difficulty:3, temp:'冷热皆可', volume:500, bg:'#D6D3D1',
+  layers:[
+    {name:'乌龙咸奶茶', pct:66, color:'#C9AE80'},
+    {name:'咸芝士奶盖', pct:26, color:'#FFF8E7'},
+    {name:'板鸭碎', pct:8, color:'#A0705A'}
+  ],
+  intro:'**南京才有的东西**。乌龙茶汤加有机牛奶和无碘海盐做咸奶茶，奶盖上铺南京板鸭碎。第一口会觉得怪，第二口就上头。',
+  ingredients:[
+    {name:'乌龙茶', amount:'7g'},
+    {name:'热水', amount:'230ml', note:'95℃'},
+    {name:'鲜牛奶', amount:'150ml'},
+    {name:'无碘海盐', amount:'2.5g', note:'这一撮盐是灵魂'},
+    {name:'奶油奶酪', amount:'25g'},
+    {name:'淡奶油', amount:'50ml'},
+    {name:'南京板鸭', amount:'30g', note:'买熟食，撕成细丝再烤脆'}
+  ],
+  tools:['打泡器','杯子','滤网','烤箱'],
+  pitfalls:[
+    '盐少了不咸、多了发苦，2.5g 是这条线。',
+    '板鸭要烤脆再撒，软的铺上去会腻。'
+  ],
+  fidelity:'马伍旺用定制咸奶盖基底，家庭自己做咸芝士奶盖能到八成五，板鸭碎是加分的部分。',
+  steps:[
+    {title:'泡乌龙', desc:'95℃ 水 230ml 泡 4 分钟，滤掉茶叶。', timer:240, act:'冲泡',
+     add:[{name:'乌龙茶汤', pct:52, color:'#C9AE80'}]},
+    {title:'调咸奶', desc:'茶汤 + 鲜牛奶 150ml + 海盐 2.5g，搅匀。', act:'搅拌',
+     add:[{name:'乌龙咸奶茶', pct:36, color:'#C9AE80'}]},
+    {title:'打咸芝士奶盖', desc:'奶油奶酪软化后加淡奶油打发，加一小撮盐。', timer:80, act:'搅拌',
+     add:[{name:'咸芝士奶盖', pct:24, color:'#FFF8E7'}]},
+    {title:'烤板鸭', desc:'板鸭撕丝，180℃ 烤 6 分钟到脆。', timer:360, act:'加热',
+     add:[{name:'板鸭碎', pct:8, color:'#A0705A'}]},
+    {title:'组装', desc:'奶茶倒杯，铺咸奶盖，最后撒板鸭碎。', act:'铺面', add:[]}
+  ]
+},
+
+{
+  id:'mochou-juhuanao', name:'莫愁·菊花脑咸酪乳', category:'奶茶', brands:['拾叁茶'],
+  method:'打沙', difficulty:3, temp:'冰', volume:500, bg:'#A7F3D0',
+  layers:[
+    {name:'菊花脑汁', pct:22, color:'#7BA05B'},
+    {name:'茉莉雨花茶', pct:36, color:'#D8E0B0'},
+    {name:'咸酪乳', pct:42, color:'#FFFBF0'}
+  ],
+  intro:'南京最「本地」的一杯。菊花脑是南京人春天必吃的野菜，微苦带清凉，配上咸酪乳竟然很高级。外地基本喝不到。',
+  ingredients:[
+    {name:'菊花脑', amount:'50g', note:'南京春季野菜，外地难买'},
+    {name:'杨桃', amount:'半个', note:'榨汁，增加清甜'},
+    {name:'茉莉雨花茶', amount:'6g'},
+    {name:'热水', amount:'200ml', note:'85℃'},
+    {name:'卫岗纯牛奶', amount:'120ml'},
+    {name:'芝士酪乳', amount:'60g', note:'或奶油奶酪 + 淡奶油打发'},
+    {name:'盐', amount:'1g'}
+  ],
+  tools:['料理机','打泡器','杯子'],
+  pitfalls:[
+    '菊花脑要焯水 10 秒去涩，不焯会有土腥味。',
+    '酪乳要咸，不咸压不住菊花脑的苦。'
+  ],
+  fidelity:'拾叁茶用溧水自建基地的仿野生菊花脑 + 非遗冷揉工艺，家庭版很难复刻那层细腻，但骨架能对上。',
+  steps:[
+    {title:'处理菊花脑', desc:'菊花脑焯水 10 秒，立刻过冰水，挤干。', timer:10, act:'冲洗', add:[]},
+    {title:'打汁', desc:'菊花脑 + 杨桃汁 + 50ml 茶水，打成汁。', timer:20, act:'打泥',
+     add:[{name:'菊花脑汁', pct:22, color:'#7BA05B'}]},
+    {title:'泡茶', desc:'85℃ 水 200ml 泡茉莉雨花茶 2 分半。', timer:150, act:'冲泡',
+     add:[{name:'茉莉雨花茶', pct:34, color:'#D8E0B0'}]},
+    {title:'调咸酪乳', desc:'芝士酪乳 + 牛奶 120ml + 盐 1g，打匀。', timer:40, act:'搅拌',
+     add:[{name:'咸酪乳', pct:38, color:'#FFFBF0'}]},
+    {title:'组装', desc:'菊叶汁垫底，倒茶汤加冰，最后铺咸酪乳。', act:'铺面',
+     add:[{name:'冰块', pct:6, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'xilan-zaiwang', name:'锡兰在望', category:'奶茶', brands:['拾叁茶'],
+  method:'直调', difficulty:1, temp:'冷热皆可', volume:500, bg:'#FEF2F2',
+  layers:[
+    {name:'锡兰红茶', pct:56, color:'#B0703A'},
+    {name:'鲜奶', pct:44, color:'#FDFBF6'}
+  ],
+  intro:'名字取自《红楼梦》的「杏帘在望」，拾叁茶给改成「锡兰」。就是一杯扎实的锡兰奶茶，奶味足、茶味正。',
+  ingredients:[
+    {name:'锡兰红茶', amount:'7g'},
+    {name:'热水', amount:'230ml', note:'95℃'},
+    {name:'卫岗牛奶', amount:'170ml', note:'或全脂鲜奶'},
+    {name:'糖', amount:'14g'}
+  ],
+  tools:['杯子','滤网'],
+  pitfalls:[
+    '锡兰要泡 5 分钟才出厚度，短了会淡。',
+    '这杯奶多，红茶务必泡浓。'
+  ],
+  fidelity:'拾叁茶用卫岗牛奶（南京本地奶源），家庭用全脂鲜奶能到九成。',
+  steps:[
+    {title:'泡红茶', desc:'95℃ 水 230ml 泡 5 分钟，滤掉茶叶。', timer:300, act:'冲泡',
+     add:[{name:'锡兰红茶', pct:56, color:'#B0703A'}]},
+    {title:'加奶', desc:'倒卫岗牛奶 170ml、糖 14g，搅匀。', act:'倒入',
+     add:[{name:'鲜奶', pct:38, color:'#FDFBF6'}]},
+    {title:'加冰或加热', desc:'冰饮加冰，热饮加热到 65℃。', act:'完成',
+     add:[{name:'冰块', pct:6, color:'#DCEFF6'}]}
+  ]
+},
+
+{
+  id:'xianyu-heou', name:'仙雨荷藕', category:'奶茶', brands:['茶云家'],
+  method:'需煮', difficulty:3, temp:'冷热皆可', volume:500, bg:'#F5F5F4',
+  layers:[
+    {name:'藕泥', pct:26, color:'#E8DCC8'},
+    {name:'白兰雨花茶奶', pct:62, color:'#D8E0B0'},
+    {name:'蜜汁藕', pct:12, color:'#A8763E'}
+  ],
+  intro:'茶云家的应季款，把南京和武汉两地的莲藕按比例配，做出独特的糯香。旁边还配一小块老南京蜜汁藕。',
+  ingredients:[
+    {name:'莲藕', amount:'200g', note:'选粉藕，脆藕做不出糯感'},
+    {name:'白兰雨花茶', amount:'6g'},
+    {name:'热水', amount:'200ml', note:'85℃'},
+    {name:'鲜奶', amount:'150ml'},
+    {name:'糖', amount:'20g'},
+    {name:'蜜汁藕', amount:'1 小块', optional:true, note:'买现成的'}
+  ],
+  tools:['锅','料理机','杯子'],
+  pitfalls:[
+    '粉藕和脆藕差别很大，买的时候要问清楚。',
+    '藕泥煮的时候要搅，容易粘锅。'
+  ],
+  fidelity:'茶云家用两地莲藕配比，家庭用本地粉藕能到八成，香气会单薄一点。',
+  steps:[
+    {title:'蒸藕', desc:'莲藕去皮切块，蒸 30 分钟到软糯。', timer:1800, act:'加热', add:[]},
+    {title:'打藕泥', desc:'藕块 + 糖 + 少量牛奶打成泥，留一点颗粒。', act:'打泥',
+     add:[{name:'藕泥', pct:26, color:'#E8DCC8'}]},
+    {title:'泡茶', desc:'85℃ 水 200ml 泡白兰雨花茶 2 分半。', timer:150, act:'冲泡',
+     add:[{name:'茶汤', pct:40, color:'#C8D898'}]},
+    {title:'调茶奶', desc:'茶汤 + 鲜奶 150ml 混匀。', act:'倒入',
+     add:[{name:'白兰雨花茶奶', pct:32, color:'#D8E0B0'}]},
+    {title:'组装', desc:'藕泥铺底，倒茶奶，旁边配一小块蜜汁藕。', act:'铺面',
+     add:[{name:'蜜汁藕', pct:12, color:'#A8763E'}]}
+  ]
+},
+
+{
+  id:'danggui-taogang', name:'当归桃胶祁红奶茶', category:'奶茶', brands:['陆藜·开了个方子'],
+  method:'需煮', difficulty:3, temp:'热', volume:450, bg:'#FDF2F8',
+  layers:[
+    {name:'桃胶', pct:22, color:'#E8D5B8'},
+    {name:'祁红奶茶', pct:70, color:'#B08050'},
+    {name:'当归香', pct:8, color:'#C9A227'}
+  ],
+  intro:'中药茶饮，南京同仁堂百黎堂创始人做的品牌。当归的味道很冲，第一次喝会愣一下，喝完身上会热。**孕妇和经期慎喝**。',
+  ingredients:[
+    {name:'祁门红茶', amount:'6g'},
+    {name:'热水', amount:'200ml', note:'95℃'},
+    {name:'当归', amount:'3g', note:'片状，别多，多了发苦'},
+    {name:'桃胶', amount:'15g', note:'提前泡 12 小时'},
+    {name:'鲜奶', amount:'150ml'},
+    {name:'冰糖', amount:'15g'}
+  ],
+  tools:['锅','炖盅','滤网'],
+  pitfalls:[
+    '当归超过 3g 会苦到喝不下，且药味盖掉一切。',
+    '桃胶必须泡够 12 小时，有硬芯就不能吃。',
+    '孕妇、经期、感冒期间不要喝。'
+  ],
+  fidelity:'陆藜用药食同源配比，家庭自己配当归量很难拿准，建议先从 2g 试起。',
+  steps:[
+    {title:'泡桃胶', desc:'桃胶 15g 冷水泡 12 小时，挑净杂质。', timer:43200, act:'浸泡',
+     add:[{name:'桃胶', pct:22, color:'#E8D5B8'}]},
+    {title:'煮当归水', desc:'当归 3g 加水 200ml 小火煮 10 分钟，滤出当归。', timer:600, act:'加热',
+     add:[{name:'当归水', pct:18, color:'#C9A227'}]},
+    {title:'泡茶', desc:'用当归水泡祁红 4 分钟。', timer:240, act:'冲泡',
+     add:[{name:'祁红茶汤', pct:40, color:'#B08050'}]},
+    {title:'加奶炖', desc:'加鲜奶 150ml、冰糖，小火加热到 65℃，别沸。', timer:120, act:'加热',
+     add:[{name:'祁红奶茶', pct:34, color:'#B08050'}]},
+    {title:'组合', desc:'桃胶放碗底，冲入热奶茶。', act:'倒入', add:[]}
+  ]
+},
+
+{
+  id:'shuimo-jinling', name:'水墨金陵', category:'奶茶', brands:['乐掌柜的茶饮铺子'],
+  method:'需煮', difficulty:2, temp:'热', volume:450, bg:'#A8A29E',
+  layers:[
+    {name:'黑芝麻糊', pct:38, color:'#2B2B2B'},
+    {name:'美玲粥', pct:42, color:'#F5EDDC'},
+    {name:'黑芝麻粉', pct:20, color:'#4A4A4A'}
+  ],
+  intro:'南京同仁堂旗下乐掌柜的产品，把黑芝麻的香和美玲粥（南京的糯米豆浆粥）搅在一起。名字叫水墨金陵，颜色真像水墨。',
+  ingredients:[
+    {name:'黑芝麻', amount:'50g', note:'要炒香'},
+    {name:'糯米', amount:'30g'},
+    {name:'豆浆', amount:'250ml'},
+    {name:'糖', amount:'25g'},
+    {name:'山药', amount:'30g', optional:true, note:'美玲粥传统配方里有'}
+  ],
+  tools:['锅','料理机'],
+  pitfalls:[
+    '黑芝麻不炒会有生腥味，这步不能省。',
+    '糯米要提前泡，不然煮不烂。'
+  ],
+  fidelity:'乐掌柜用道地食材配比，家庭版黑芝麻香够但「药食同源」那层体会不到。',
+  steps:[
+    {title:'炒芝麻', desc:'黑芝麻小火干炒 3 分钟出香。', timer:180, act:'加热', add:[]},
+    {title:'煮美玲粥', desc:'糯米泡 2 小时后加豆浆 250ml、山药，小火煮 25 分钟。', timer:1500, act:'加热',
+     add:[{name:'美玲粥', pct:42, color:'#F5EDDC'}]},
+    {title:'磨芝麻糊', desc:'炒好的芝麻 + 糖打粉，取一半加少量粥打成糊。', act:'打泥',
+     add:[{name:'黑芝麻糊', pct:36, color:'#2B2B2B'}]},
+    {title:'组合', desc:'粥倒碗里，芝麻糊淋在上面成水墨纹，撒剩余芝麻粉。', act:'铺面',
+     add:[{name:'黑芝麻粉', pct:18, color:'#4A4A4A'}]}
+  ]
+},
+
+{
+  id:'moli-nailv', name:'茉莉奶绿', category:'奶茶', brands:['茶百道','蜜雪冰城'],
+  method:'直调', difficulty:1, temp:'冷热皆可', volume:500, bg:'#ECFCCB',
+  layers:[
+    {name:'茉莉绿茶', pct:62, color:'#DCE3B8'},
+    {name:'奶液', pct:38, color:'#F5EEDC'}
+  ],
+  intro:'茉莉绿茶底的奶绿，比普通奶绿香得多。茶百道和蜜雪都有，蜜雪版本用奶精、茶百道用鲜奶，风味完全不同。',
+  ingredients:[
+    {name:'茉莉绿茶', amount:'7g'},
+    {name:'热水', amount:'240ml', note:'85℃'},
+    {name:'鲜奶', amount:'140ml', note:'想复刻蜜雪版就用奶精 25g'},
+    {name:'糖浆', amount:'18ml'}
+  ],
+  tools:['杯子','滤网'],
+  pitfalls:[
+    '绿茶用沸水会涩，85℃ 是上限。',
+    '茶汤要降温再加奶，热的会发腥。'
+  ],
+  fidelity:'茶百道用鲜奶、蜜雪用奶精，两种版本差别很大，看你想要哪个。',
+  steps:[
+    {title:'泡茉莉', desc:'85℃ 水 240ml 泡 3 分钟，滤掉茶叶。', timer:180, act:'冲泡',
+     add:[{name:'茉莉绿茶', pct:62, color:'#DCE3B8'}]},
+    {title:'降温', desc:'加冰搅到不烫手。', act:'降温',
+     add:[{name:'冰块', pct:8, color:'#DCEFF6'}]},
+    {title:'加奶调甜', desc:'倒鲜奶 140ml、糖浆 18ml，轻搅。', act:'倒入',
+     add:[{name:'奶液', pct:30, color:'#F5EEDC'}]}
+  ]
 }
 
 ]);
