@@ -4,7 +4,7 @@ const vm = require('vm');
 const window = {};
 const ctx = vm.createContext({ window, console, Math, Date });
 
-const files = ['coffee','milktea','lighttea','fruittea','lemon','special','bases'];
+const files = ['coffee','milktea','lighttea','fruittea','lemon','special','bases','batch2'];
 for (const f of files) {
   const code = fs.readFileSync(`${__dirname}/../data/${f}.js`, 'utf8');
   try {

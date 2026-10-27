@@ -463,7 +463,7 @@ window.DRINKS = (window.DRINKS || []).concat([
 
 {
   id:'taishi', name:'泰式奶茶', category:'奶茶', brands:['泰式茶饮店'],
-  method:'需煮', difficulty:2, temp:'冷热皆可', volume:500, bg:'#FB923C',
+  method:'需煮', difficulty:2, temp:'冷热皆可', volume:500, bg:'#FB8C3C',
   layers:[
     {name:'炼乳', pct:18, color:'#E8C99A'},
     {name:'泰茶汤', pct:52, color:'#D2691E'},
