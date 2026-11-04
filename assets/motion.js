@@ -165,7 +165,7 @@
     if (!box) return;
     box.classList.add('mx-ready');
     $$('.card', box).forEach(function (c, i) {
-      /* 只有前 30 张做递增延迟，避免 205 张全部排队太久 */
+      /* 只有前 30 张做递增延迟，避免全部卡片排队太久 */
       c.style.animationDelay = (i < 30 ? Math.min(i * 26, 620) : 0) + 'ms';
     });
   }
