@@ -56,19 +56,52 @@ function cupAtStep(d, idx){
   return acc;
 }
 
-/* ---------- 动作图标与鼓励 ---------- */
+/* ---------- 动作图标与随机表情 ---------- */
+/* 动作标签保留功能性 emoji：它要一眼说明这步在干什么，
+   换成笑脸会丢信息。表情的随机放在鼓励卡和完成页。 */
 const ACT_EMOJI = {
   '铺冰':'🧊','倒入':'🫗','淋入':'☕','冲出':'💥','加热':'🔥','焖':'⏳',
   '摇匀':'🫨','捣碎':'🥄','搅拌':'🌀','铺面':'🍦','备料':'🔪','冲洗':'💧',
   '冰杯':'🥶','打泥':'🥭','降温':'❄️','挂壁':'🍯','完成':'✨','浸泡':'🫧'
 };
+
+/* 表情池：以脸部表情为主，不再固定用手势 / 物品 */
+const FACE_POOL = [
+  '😀','😃','😄','😁','😆','😊','🙂','🙃','😉','😍','🥰','😋',
+  '😎','🤩','🥳','😌','😏','🤗','🤭','🫡','😺','😸','🥹','😇',
+  '🤓','😗','😙','🫠'
+];
+
+/* 鼓励文案池：按进度分组，每组随机取，不再每次都是那四句 */
+const CHEER_TEXT = {
+  first:['先开个头','动手吧','来，开始','第一下'],
+  mid:  ['稳的','继续保持','很顺手','就这么来','漂亮','别急'],
+  near: ['快了','就差一点','马上就好','闻到香味了'],
+  last: ['收尾，马上就能喝了','最后一步','马上干杯','成了']
+};
+
+function pick(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+/* 随机取 1~3 个不重复的表情，拼成一小串 */
+function randomFaces(){
+  const pool = FACE_POOL.slice();
+  const n = 1 + Math.floor(Math.random() * 3);
+  const out = [];
+  for(let i = 0; i < n; i++){
+    out.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+  }
+  return out.join('');
+}
+
 function actEmoji(act){ return ACT_EMOJI[act] || '👌'; }
 
 function cheer(idx, total){
-  if(idx === 0) return {e:'👊', t:'先开个头'};
-  if(idx === total-1) return {e:'🥂', t:'收尾，马上就能喝了'};
-  if(idx === total-2) return {e:'🌟', t:'快了'};
-  return {e:'💪', t:'稳的'};
+  let t;
+  if(idx === 0) t = pick(CHEER_TEXT.first);
+  else if(idx === total - 1) t = pick(CHEER_TEXT.last);
+  else if(idx === total - 2) t = pick(CHEER_TEXT.near);
+  else t = pick(CHEER_TEXT.mid);
+  return {e: randomFaces(), t};
 }
 
 /* ---------- 左栏 ---------- */
@@ -248,7 +281,7 @@ function renderDone(d){
         <div class="done-inner">
           <div class="done-cup">${cupSVG(d.layers, 160, 214)}</div>
           <h2 class="done-title">干杯<span class="done-emo">🥂</span></h2>
-          <p class="done-sub">${d.name}做好了</p>
+          <p class="done-sub">${d.name}做好了 <span class="done-face">${randomFaces()}</span></p>
           <button class="done-btn" data-act="back">回到列表</button>
         </div>
       </div>

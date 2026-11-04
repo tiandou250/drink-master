@@ -45,21 +45,6 @@
   animation-duration:.38s;
 }
 
-/* 1-2 幕布转场：切屏时一块饮品色硬边矩形横扫而过 */
-.mx-curtain{
-  position:fixed;inset:0;z-index:150;pointer-events:none;
-  background:var(--mx-curtain-color,var(--mx-accent));
-  border-right:3px solid #000;
-  transform-origin:left center;
-  animation:mx-curtain-sweep .52s var(--mx-ease) forwards;
-}
-@keyframes mx-curtain-sweep{
-  0%   {transform:scaleX(0)}
-  38%  {transform:scaleX(1)}
-  62%  {transform:scaleX(1)}
-  100% {transform:scaleX(0);transform-origin:right center}
-}
-
 /* 1-3 滚动揭示：区块进视口才浮出（IntersectionObserver 加 .mx-in） */
 .mx-reveal{opacity:0;transform:translateY(20px)}
 .mx-reveal.mx-in{
@@ -254,26 +239,6 @@
 }
 .mx-stat b{font-variant-numeric:tabular-nums}
 
-/* 4-3 完成页无限跑马灯：硬边斜纹 + 流动文字 */
-.mx-marquee{
-  position:absolute;left:0;right:0;bottom:0;height:38px;
-  border-top:3px solid #000;background:#000;
-  overflow:hidden;display:flex;align-items:center;
-}
-.mx-marquee-track{
-  display:flex;white-space:nowrap;
-  animation:mx-marquee-run 14s linear infinite;
-}
-.mx-marquee-track span{
-  color:#fff;font-size:12px;font-weight:900;letter-spacing:.14em;
-  padding:0 22px;
-}
-.mx-marquee-track i{color:var(--mx-accent);font-style:normal;padding:0 10px}
-@keyframes mx-marquee-run{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-
 /* 4-4 视差：杯子随详情滚动微移，幅度 <= 12px */
 .hero-cup.mx-parallax{
   transform:translateY(var(--mx-parallax,0px));
@@ -404,6 +369,16 @@
   50%{transform:rotate(11deg) translateY(-5px)}
 }
 
+/* 7-6 完成页随机笑脸：弹出来，和干杯的 🥂 一起庆祝 */
+.done-face{
+  display:inline-block;margin-left:6px;font-size:24px;vertical-align:-2px;
+  animation:mx-face-pop .5s var(--mx-bounce) .18s both;
+}
+@keyframes mx-face-pop{
+  0%{opacity:0;transform:scale(.45) rotate(-16deg)}
+  100%{opacity:1;transform:none}
+}
+
 /* 7-4 光标跟随硬边块：桌面端，极淡、带延迟跟随 */
 #mxCursorInk{
   position:fixed;top:0;left:0;width:34px;height:34px;
@@ -430,11 +405,11 @@
   .btn.mx-magnetic{transform:none!important}
   #mxCursorInk{display:none}
   .hero-cup svg,.done-cup svg,.cheer-e,.done-emo{animation:none}
-  .done-view::before,.mx-marquee-track,.timer.run{animation:none}
+  .done-view::before,.timer.run{animation:none}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .mx-curtain,.mx-ripple,.mx-particle,#mxCursorInk,.mx-toast,
+  .mx-ripple,.mx-particle,#mxCursorInk,.mx-toast,
   .mx-caret,#mxSkeleton{display:none!important}
   *,*::before,*::after{
     animation-duration:.01ms!important;

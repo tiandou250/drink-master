@@ -19,11 +19,11 @@
 
   /* 启用的动效清单（便于核对与调试） */
   window.MX_MOTIONS = [
-    '卡片多向级联入场', '幕布转场', '滚动区块揭示', '杯子翻转', '弹窗抽屉滑入',
+    '卡片多向级联入场', '滚动区块揭示', '杯子翻转', '弹窗抽屉滑入',
     '步骤条逐级点亮', '详情整页淡入', '点击涟漪', '磁吸跟随', '键盘聚焦框',
     '下划线滑入', '描边浮现', '勾选粒子爆开', '轻震动', 'Tab 滑动指示器',
     '筛选脉冲', 'Toast 堆叠', '勾号弹跳', '滚动进度条', '数字滚动',
-    '无限跑马灯', '杯子视差', '标题逐字浮现', '文字扫光', '荧光笔标记',
+    '杯子视差', '标题逐字浮现', '文字扫光', '荧光笔标记',
     '计时器呼吸脉冲', '三点跳动', '杯子漂浮', '斜纹流动', '呼吸缩放',
     '光标跟随硬边块', '搜索图标旋转'
   ];
@@ -102,8 +102,8 @@
   }
 
   function accentOf(el) {
-    /* 底部栏 .bar 是 .detail-wrap 的兄弟节点，取不到那里的变量，
-       所以依次尝试：自身所在容器 → .bar → 整页详情 → 卡片自己的 --bg */
+    /* 取当前饮品主色。底部栏 .bar 是 .detail-wrap 的兄弟节点，
+       CSS 变量只在定义它的子树内有效，所以要多级回退。 */
     var hosts = [
       el && el.closest('.detail-wrap'),
       el && el.closest('.bar'),
@@ -155,17 +155,6 @@
         setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 600);
       })(p);
     }
-  }
-
-  /* 幕布转场：饮品色硬边矩形横扫 */
-  function curtain(color) {
-    if (REDUCED || $('#mxCurtain')) return;
-    var c = document.createElement('div');
-    c.id = 'mxCurtain';
-    c.className = 'mx-curtain';
-    c.style.setProperty('--mx-curtain-color', color || '#FCD34D');
-    document.body.appendChild(c);
-    setTimeout(function () { if (c.parentNode) c.parentNode.removeChild(c); }, 560);
   }
 
   /* ------------------------------------------------------------------
@@ -296,19 +285,9 @@
       b.classList.add('mx-underline');
     });
 
-    /* 完成页：跑马灯 + 庆祝 Toast */
+    /* 完成页：一条庆祝 Toast（横条跑马灯已移除） */
     var done = $('.done-view', wrap);
-    if (done && !$('.mx-marquee', done)) {
-      var mq = document.createElement('div');
-      mq.className = 'mx-marquee';
-      var line = '';
-      for (var k = 0; k < 4; k++) {
-        line += '<span>干杯 <i>CHEERS</i> 饮料小当家 <i>DRINK MASTER</i> ' + drinkCount + ' 款配方 <i>·</i></span>';
-      }
-      mq.innerHTML = '<div class="mx-marquee-track">' + line + line + '</div>';
-      done.appendChild(mq);
-      toast('这杯做好了，干杯！', true);
-    }
+    if (done) toast('这杯做好了，干杯！', true);
 
     /* 兜底：IntersectionObserver 未触发时尽快强制显示，避免内容长时间空白 */
     setTimeout(function () {
@@ -366,12 +345,8 @@
      5. 事件委托（捕获阶段旁观，冒泡阶段读结果）
      ------------------------------------------------------------------ */
   function bindEvents() {
-    /* 捕获：在 app.js 重绘之前启动幕布 + 涟漪 */
+    /* 捕获阶段：按真实点击坐标生成涟漪 */
     document.addEventListener('click', function (e) {
-      var act = e.target.closest('[data-act]');
-      var card = e.target.closest('.card');
-      if (act || card) curtain(accentOf(act || card));
-
       var hit = e.target.closest('.btn, .tab, .chip, .done-btn, .modal-close, .back');
       if (hit && !hit.classList.contains('mx-magnetic')) ripple(hit, e);
     }, true);
