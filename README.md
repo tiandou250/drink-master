@@ -27,6 +27,8 @@ drink-master/
 ├── index.html          页面骨架
 ├── assets/
 │   ├── style.css       样式（新粗野主义）
+│   ├── motion.css      动效样式层（32 种动效 / 28 个 keyframes）
+│   ├── motion.js       动效驱动层（事件委托 + MutationObserver）
 │   └── app.js          逻辑（渲染、计时、存储、烟花）
 ├── data/
 │   ├── coffee.js       咖啡 26
@@ -125,6 +127,22 @@ node scripts/check.js
 - 制作页每一步的杯子状态由前面所有步骤的 `add` 累积得出
 - 备料勾选状态存在内存中，页面刷新会重置
 - 完成页的烟花是 Canvas 方块粒子
+
+## 动效层
+
+`motion.css` + `motion.js` 参考 [fronted-helper](https://tiandou250.github.io/fronted-helper/) 动效库做了筛选移植，共 **32 种动效**，覆盖入场转场、交互反馈、组件、滚动、文字、状态、环境氛围七类。
+
+**筛选原则**：只保留结构性动效（位移、缩放、旋转、描边、遮罩、级联、翻转），剔除玻璃拟态、极光、光斑漂移、外发光这类柔光效果——它们和本站「3px 黑框 + 零模糊硬阴影」的粗野主义语言冲突。
+
+**接入方式**：`app.js` 完全没有改动。动效层用 `document` 事件委托 + `MutationObserver`（只监听 `childList`，不监听 `attributes`）挂载，因此勾选原料时只改 class、不会触发重新装饰，之前修好的「勾选不重绘」不受影响。
+
+**几个实现要点**：
+
+- `MutationObserver` 回调里同步装饰，不用 `requestAnimationFrame` 延迟——后台标签页会节流 rAF，会导致后续重绘漏掉整批动效。
+- 数字滚动（`countUp`）带 `setTimeout` 终值兜底，避免 rAF 被节流后数字卡在中间值。
+- 滚动区块揭示（`IntersectionObserver`）有 600ms 强制显示兜底，避免内容长时间不可见。
+- 无限循环动效控制在 3 个以内且幅度极轻；漂浮动画挂在杯子内部 SVG 上，不占用容器的 `transform`，否则会盖掉 hover 抬升。
+- 全部遵守 `prefers-reduced-motion` 与 `(hover:none)` 兜底；触屏设备禁用磁吸、光标跟随与漂浮。
 
 ## 设计者
 
