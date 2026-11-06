@@ -24,22 +24,20 @@ node scripts/check.js
 drink-master/
 ├── index.html          页面骨架
 ├── assets/
-│   ├── style.css       样式（新粗野主义）
-│   ├── motion.css      动效样式层（32 种动效 / 28 个 keyframes）
+│   ├── style.css       基础样式（新粗野主义）
+│   ├── motion.css      动效样式层
 │   ├── motion.js       动效驱动层（事件委托 + MutationObserver）
-│   └── app.js          逻辑（渲染、计时、存储、烟花）
-├── data/
-│   ├── coffee.js       咖啡 26
-│   ├── milktea.js      奶茶 51
-│   ├── lighttea.js     轻乳茶 33
-│   ├── fruittea.js     果茶 59
-│   ├── lemon.js        柠檬茶 15
-│   ├── special.js      特调 21
-│   ├── bases.js        基底 22
-│   ├── batch2.js       第二批补充（书亦/一点点/CoCo/沪上阿姨/古茗/蜜雪/茶百道）
-│   └── luckin.js       瑞幸新品（苹果系列 / 小黄油系列 / 牧场拿铁）
+│   ├── features.css    功能模块样式（抽一杯 / 手边有）
+│   ├── features.js     功能模块逻辑
+│   └── app.js          主逻辑（渲染、计时、分层图、烟花）
+├── data/               配方数据，按批次分文件；具体款数跑 check.js 看
+│   ├── coffee.js / milktea.js / lighttea.js / fruittea.js
+│   ├── lemon.js / special.js
+│   ├── bases.js        小料与基底
+│   ├── batch2.js       第二批扩充
+│   └── luckin.js       瑞幸新品
 └── scripts/
-    └── check.js        数据校验脚本
+    └── check.js        数据校验脚本（实时统计 + 字段/配色检查）
 ```
 
 ## 本地打开
@@ -129,7 +127,7 @@ node scripts/check.js
 
 ## 动效层
 
-`motion.css` + `motion.js` 参考 [fronted-helper](https://tiandou250.github.io/fronted-helper/) 动效库做了筛选移植，共 **30 种动效**，覆盖入场转场、交互反馈、组件、滚动、文字、状态、环境氛围七类。
+`motion.css` + `motion.js` 参考 [fronted-helper](https://tiandou250.github.io/fronted-helper/) 动效库做了筛选移植，覆盖入场转场、交互反馈、组件、滚动、文字、状态、环境氛围七类。
 
 **筛选原则**：只保留结构性动效（位移、缩放、旋转、描边、遮罩、级联、翻转），剔除玻璃拟态、极光、光斑漂移、外发光这类柔光效果——它们和本站「3px 黑框 + 零模糊硬阴影」的粗野主义语言冲突。
 
@@ -146,6 +144,21 @@ node scripts/check.js
 - 滚动区块揭示（`IntersectionObserver`）有 600ms 强制显示兜底，避免内容长时间不可见。
 - 无限循环动效控制在 3 个以内且幅度极轻；漂浮动画挂在杯子内部 SVG 上，不占用容器的 `transform`，否则会盖掉 hover 抬升。
 - 全部遵守 `prefers-reduced-motion` 与 `(hover:none)` 兜底；触屏设备禁用磁吸、光标跟随与漂浮。
+
+## 功能模块
+
+`features.css` + `features.js` 提供两个入口，位于左栏搜索框下方：
+
+- **抽一杯**：从全部饮品里纯随机抽一款，**不做任何条件过滤**。弹窗里有「换一杯」（会排除上一次抽到的那杯）和「就做这杯」（直接进备料页）。
+- **手边有什么**：勾选手头原料，反查「现在就能做」和「只差一样」的饮品，后者在卡片上标出缺哪一味。
+
+数据层面有三个前提，缺一个功能就会「看着能用其实漏一半」：
+
+1. **原料别名归一**：数据里「牛奶 / 鲜奶 / 全脂牛奶 / 鲜牛乳 / 冰博克牛奶」是五种写法，`features.js` 归并到「牛奶」；「厚椰乳 / 椰浆」归并到「椰乳」。茶底与风味糖浆不归并，避免把不同风味硬凑成一样。
+2. **常备料排除**：糖、水、冰、盐等几乎每杯都有，已从词表和匹配中剔除，否则「只差一样」永远差的是冰块。
+3. **零结果引导**：只勾一两样时「现在就能做」必然为空（多数饮品都需要第二样核心料），此时列出「补上一样就有得喝」建议，按能解锁的款数排序，点一下直接勾上。
+
+模块独立于 `app.js`：通过全局作用域复用 `state` / `renderCards` / `renderDetail` / `stopTimer` / `cupSVG`，不修改主逻辑；样式也自包含，不依赖 `motion.css`。
 
 ## 设计者
 

@@ -1,0 +1,214 @@
+/* ==========================================================================
+   饮料小当家 · 功能模块样式
+   两个功能：抽一杯 / 手边有什么
+   沿用新粗野主义：3px 黑框、零模糊硬阴影、零圆角、超粗字重。
+   本文件自包含，不依赖 motion.css。
+   ========================================================================== */
+
+/* ---------- 左栏快捷入口 ---------- */
+.fx-quick{
+  display:flex;gap:10px;margin-top:12px;
+}
+.fx-quick-btn{
+  flex:1;height:44px;
+  font-size:14px;font-weight:900;letter-spacing:-.01em;
+  border:3px solid #000;background:#fff;color:#000;
+  box-shadow:4px 4px 0 #000;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:transform .2s cubic-bezier(.2,.75,.3,1.15),box-shadow .2s cubic-bezier(.2,.75,.3,1.15);
+}
+.fx-quick-btn span{font-size:16px;line-height:1}
+.fx-quick-btn:first-child{background:#000;color:#fff}
+.fx-quick-btn:hover{transform:translate(0,-3px);box-shadow:4px 8px 0 #000}
+.fx-quick-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #000;transition-duration:.07s}
+.fx-quick-btn:focus-visible{outline:3px solid #000;outline-offset:4px}
+
+/* ---------- 浮层通用 ---------- */
+.fx-overlay{
+  position:fixed;inset:0;z-index:250;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.fx-overlay[hidden]{display:none}
+.fx-mask{
+  position:absolute;inset:0;background:rgba(0,0,0,.46);
+  animation:fx-mask-in .2s ease both;
+}
+@keyframes fx-mask-in{from{opacity:0}to{opacity:1}}
+.fx-x{
+  position:absolute;top:10px;right:12px;
+  width:30px;height:30px;line-height:24px;
+  font-size:22px;font-weight:900;
+  border:3px solid #000;background:#fff;color:#000;
+  box-shadow:3px 3px 0 #000;padding:0;
+}
+.fx-x:hover{background:#000;color:#fff}
+.fx-x:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #000}
+
+.fx-btn{
+  flex:1;height:52px;
+  font-size:15px;font-weight:900;
+  border:3px solid #000;background:#fff;color:#000;
+  box-shadow:5px 5px 0 #000;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s cubic-bezier(.2,.75,.3,1.15),box-shadow .2s cubic-bezier(.2,.75,.3,1.15);
+}
+.fx-btn:hover{transform:translate(0,-3px);box-shadow:5px 9px 0 #000}
+.fx-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #000}
+.fx-btn-accent{background:#FCD34D}
+.fx-btn-ghost{background:#fff}
+.fx-btn:focus-visible{outline:3px solid #000;outline-offset:4px}
+
+/* ---------- 抽一杯 ---------- */
+.fx-picker{
+  position:relative;width:100%;max-width:360px;
+  background:#fff;border:3px solid #000;box-shadow:10px 10px 0 #000;
+  padding:26px 24px 22px;text-align:center;
+  animation:fx-pop .34s cubic-bezier(.2,.85,.3,1.15) both;
+}
+@keyframes fx-pop{
+  0%{opacity:0;transform:scale(.88) rotate(-2deg) translateY(14px)}
+  100%{opacity:1;transform:none}
+}
+.fx-kicker{
+  font-size:12px;font-weight:900;letter-spacing:.14em;color:#666;
+  text-transform:uppercase;margin-bottom:18px;
+}
+.fx-kicker span{font-size:16px;letter-spacing:0;display:inline-block;margin-left:6px;vertical-align:-1px}
+.fx-pick-cup{
+  width:132px;margin:0 auto 18px;
+  background:#fff;border:3px solid #000;padding:7px;line-height:0;
+  box-shadow:6px 6px 0 #000;
+  animation:fx-cup-in .44s cubic-bezier(.2,.85,.3,1.15) both;
+}
+@keyframes fx-cup-in{
+  0%{opacity:0;transform:scale(.8) rotate(-6deg)}
+  100%{opacity:1;transform:none}
+}
+.fx-pick-name{
+  font-size:29px;font-weight:900;letter-spacing:-.035em;line-height:1.2;
+  margin-bottom:9px;
+}
+.fx-pick-meta{
+  font-size:12px;font-weight:800;color:#444;margin-bottom:16px;
+}
+.fx-pick-line{
+  font-size:14px;font-weight:900;
+  display:inline-block;padding:7px 15px;margin-bottom:22px;
+  background:#FCD34D;border:3px solid #000;transform:rotate(-1deg);
+}
+.fx-actions{display:flex;gap:10px}
+
+/* ---------- 手边有什么 ---------- */
+.fx-sheet{
+  position:relative;width:100%;max-width:720px;max-height:86vh;
+  background:#fff;border:3px solid #000;box-shadow:10px 10px 0 #000;
+  display:flex;flex-direction:column;
+  animation:fx-sheet-in .32s cubic-bezier(.2,.85,.3,1.1) both;
+}
+@keyframes fx-sheet-in{
+  0%{opacity:0;transform:translateY(38px) scale(.98)}
+  100%{opacity:1;transform:none}
+}
+.fx-sheet-head{
+  flex-shrink:0;display:flex;align-items:flex-start;justify-content:space-between;
+  padding:20px 22px 16px;border-bottom:3px solid #000;background:#FCD34D;
+}
+.fx-sheet-title{font-size:22px;font-weight:900;letter-spacing:-.03em;line-height:1.2}
+.fx-sheet-sub{font-size:12px;font-weight:700;margin-top:3px}
+.fx-sheet-head .fx-x{position:static;flex-shrink:0}
+.fx-sheet-body{overflow-y:auto;padding:18px 22px 24px;-webkit-overflow-scrolling:touch}
+
+.fx-pantry-bar{display:flex;gap:9px;margin-bottom:14px}
+.fx-pantry-bar input{
+  flex:1;height:44px;padding:0 12px;
+  border:3px solid #000;background:#fff;
+  font-family:inherit;font-size:14px;font-weight:700;outline:none;
+}
+.fx-pantry-bar input:focus{box-shadow:4px 4px 0 #000}
+.fx-pantry-bar button{
+  flex:0 0 76px;height:44px;
+  font-family:inherit;font-size:13px;font-weight:900;
+  border:3px solid #000;background:#fff;box-shadow:3px 3px 0 #000;
+}
+.fx-pantry-bar button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #000}
+
+.fx-chips{
+  display:flex;flex-wrap:wrap;gap:7px;
+  max-height:188px;overflow-y:auto;padding:2px 2px 8px;
+}
+.fx-chip{
+  font-family:inherit;font-size:12px;font-weight:800;
+  padding:6px 11px;border:2px solid #000;background:#fff;
+  box-shadow:2px 2px 0 #000;white-space:nowrap;
+}
+.fx-chip:hover{transform:translate(0,-2px);box-shadow:2px 5px 0 #000}
+.fx-chip.on{background:#000;color:#fff;box-shadow:none}
+.fx-chip.on:hover{transform:none}
+.fx-chip .n{opacity:.55;margin-left:5px;font-weight:700}
+.fx-chips-note{font-size:11px;font-weight:700;color:#777;margin:6px 0 20px}
+
+.fx-group{margin-bottom:22px}
+.fx-group-title{
+  display:flex;align-items:center;gap:9px;margin-bottom:12px;
+  font-size:14px;font-weight:900;
+}
+.fx-group-title .cnt{
+  font-size:11px;font-weight:900;padding:2px 8px;
+  background:#000;color:#fff;
+}
+.fx-group.g-one .fx-group-title .cnt{background:#F59E0B;color:#000}
+.fx-group-empty{
+  font-size:13px;font-weight:700;color:#555;
+  padding:16px;border:3px dashed #000;text-align:center;
+}
+.fx-suggest{
+  display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:12px;
+}
+.fx-suggest .fx-chip{background:#FCD34D;color:#000}
+.fx-mini-list{display:flex;flex-direction:column;gap:9px}
+.fx-mini{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:10px 12px;border:3px solid #000;background:var(--mbg,#fff);
+  box-shadow:4px 4px 0 #000;
+  transition:transform .18s cubic-bezier(.2,.75,.3,1.15),box-shadow .18s cubic-bezier(.2,.75,.3,1.15);
+  animation:fx-mini-in .3s cubic-bezier(.2,.8,.3,1) both;
+}
+@keyframes fx-mini-in{
+  from{opacity:0;transform:translateX(-10px)}
+  to{opacity:1;transform:none}
+}
+.fx-mini:hover{transform:translate(0,-3px);box-shadow:4px 8px 0 #000}
+.fx-mini:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #000}
+.fx-mini-cup{
+  flex:0 0 34px;background:#fff;border:2px solid #000;padding:2px;line-height:0;
+}
+.fx-mini-body{flex:1;min-width:0}
+.fx-mini-name{font-size:15px;font-weight:900;letter-spacing:-.01em;line-height:1.25}
+.fx-mini-meta{font-size:11px;font-weight:700;color:#444;margin-top:2px}
+.fx-mini-miss{
+  flex-shrink:0;font-size:11px;font-weight:900;
+  padding:4px 8px;background:#fff;border:2px solid #000;
+}
+.fx-more{font-size:12px;font-weight:800;color:#666;padding:8px 0 0}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:899px){
+  .fx-overlay{align-items:flex-end;padding:0}
+  .fx-picker{
+    max-width:none;margin:0 12px 12px;
+    border-radius:0;animation-name:fx-sheet-in;
+  }
+  .fx-sheet{max-width:none;max-height:90vh;margin:0;border-left:none;border-right:none;border-bottom:none;box-shadow:none}
+  .fx-sheet-head{padding:16px 18px 14px}
+  .fx-sheet-body{padding:16px 18px 24px}
+  .fx-quick-btn{font-size:13px;height:42px}
+}
+
+@media (hover:none){
+  .fx-quick-btn:hover,.fx-btn:hover,.fx-mini:hover,.fx-chip:hover,.fx-x:hover{transform:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fx-mask,.fx-picker,.fx-sheet,.fx-pick-cup,.fx-mini{animation:none!important}
+  .fx-quick-btn,.fx-btn,.fx-mini,.fx-chip{transition:none!important}
+}

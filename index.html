@@ -9,6 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FCD34D'/><path d='M30 22h40l-7 58H37z' fill='%23000'/></svg>">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="assets/motion.css">
+<link rel="stylesheet" href="assets/features.css">
 </head>
 <body>
 <div class="app" id="app" data-view="list">
@@ -18,6 +19,10 @@
       <div class="search">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
         <input id="q" placeholder="搜饮品、品牌、原料" autocomplete="off">
+      </div>
+      <div class="fx-quick">
+        <button class="fx-quick-btn" id="rollBtn" type="button"><span>🎲</span> 抽一杯</button>
+        <button class="fx-quick-btn" id="pantryBtn" type="button"><span>🥛</span> 手边有</button>
       </div>
     </div>
     <div class="collapsible" id="filterZone">
@@ -43,6 +48,46 @@
   </div>
 </div>
 
+<!-- 抽一杯 -->
+<div class="fx-overlay" id="pickerOverlay" hidden>
+  <div class="fx-mask" data-fx-close="picker"></div>
+  <div class="fx-picker">
+    <button class="fx-x" data-fx-close="picker" type="button" aria-label="关闭">×</button>
+    <div class="fx-kicker">今天喝什么 <span id="pickFace">😄</span></div>
+    <div class="fx-pick-cup" id="pickCup"></div>
+    <div class="fx-pick-name" id="pickName"></div>
+    <div class="fx-pick-meta" id="pickMeta"></div>
+    <div class="fx-pick-line" id="pickLine"></div>
+    <div class="fx-actions">
+      <button class="fx-btn fx-btn-ghost" id="pickAgain" type="button">换一杯</button>
+      <button class="fx-btn fx-btn-accent" id="pickGo" type="button">就做这杯</button>
+    </div>
+  </div>
+</div>
+
+<!-- 手边有什么 -->
+<div class="fx-overlay" id="pantryOverlay" hidden>
+  <div class="fx-mask" data-fx-close="pantry"></div>
+  <div class="fx-sheet">
+    <div class="fx-sheet-head">
+      <div>
+        <div class="fx-sheet-title">手边有什么</div>
+        <div class="fx-sheet-sub">勾几样手里有的，看看能做什么</div>
+      </div>
+      <button class="fx-x" data-fx-close="pantry" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="fx-sheet-body">
+      <div class="fx-pantry-bar">
+        <input id="pantryQ" placeholder="找原料，比如 牛奶 / 芒果" autocomplete="off">
+        <button id="pantryClear" type="button">清空</button>
+      </div>
+      <div class="fx-chips" id="pantryChips"></div>
+      <div class="fx-chips-note" id="pantryNote"></div>
+      <div class="fx-results" id="pantryResults"></div>
+    </div>
+  </div>
+</div>
+
 <script src="data/coffee.js"></script>
 <script src="data/milktea.js"></script>
 <script src="data/lighttea.js"></script>
@@ -54,5 +99,6 @@
 <script src="data/luckin.js"></script>
 <script src="assets/app.js"></script>
 <script src="assets/motion.js"></script>
+<script src="assets/features.js"></script>
 </body>
 </html>
