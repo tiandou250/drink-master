@@ -1,0 +1,63 @@
+<view class="page" wx:if="{{!missing}}" style="--accent:{{accent}}">
+  <view class="hero" style="background:{{accent}}">
+    <view class="cup cup-lg">
+      <view class="cup-inner">
+        <view wx:for="{{bands}}" wx:for-item="b" class="cup-band"
+              style="height:{{b.height}}%;background:{{b.color}}"></view>
+      </view>
+      <view class="cup-shine"></view>
+      <view class="cup-shine2"></view>
+    </view>
+    <view class="hero-info">
+      <view class="hero-title">{{name}}</view>
+      <view class="hero-sub">{{intro}}</view>
+      <view class="brands">
+        <view wx:for="{{brands}}" wx:key="*this" class="nb-tag tag">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-head">
+      <view class="nb-title">原料</view>
+      <view class="sec-note">{{needTotal}} 样必选</view>
+    </view>
+    <view wx:for="{{ings}}" wx:key="name" class="ing {{item.done ? 'done' : ''}}"
+          data-name="{{item.name}}" data-idx="{{index}}" bindtap="onToggle">
+      <view class="check"><text wx:if="{{item.done}}" class="tick">✓</text></view>
+      <view class="ing-main">
+        <view class="ing-name">{{item.name}}<text wx:if="{{item.optional}}" class="opt">可选</text></view>
+        <view wx:if="{{item.note}}" class="ing-note">{{item.note}}</view>
+      </view>
+      <view class="ing-amt">{{item.amount}}</view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-head"><view class="nb-title">工具</view></view>
+    <view class="tools">
+      <view wx:for="{{tools}}" wx:key="*this" class="nb-tag tool">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-head"><view class="nb-title">容易翻车的地方</view></view>
+    <view wx:for="{{pitfalls}}" class="pitfall" style="border-left-color:{{accent}}">
+      <view class="pf-num">{{index + 1}}</view>
+      <view class="pf-text">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-head"><view class="nb-title">还原度</view></view>
+    <view class="fidelity">{{fidelity}}</view>
+  </view>
+
+  <view class="bar-space"></view>
+  <view class="nb-bar" style="--accent:{{accent}}">
+    <view class="nb-btn nb-btn-accent" hover-class="btn-hover" bindtap="onStart">料齐了，开始做</view>
+  </view>
+  <view class="hint" wx:if="{{left > 0}}"><text class="hint-tag">还有 {{left}} 样没勾</text></view>
+</view>
+
+<view class="nb-empty" wx:else>没找到这杯饮品</view>

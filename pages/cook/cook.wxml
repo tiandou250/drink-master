@@ -1,0 +1,65 @@
+<view class="page" wx:if="{{!done && !missing}}" style="--accent:{{accent}}">
+  <view class="dots">
+    <view wx:for="{{dots}}" class="dot {{item}}"></view>
+  </view>
+  <view class="step-label" style="background:{{accent}}">{{stepLabel}}</view>
+
+  <view class="stage" style="background:{{accent}}">
+    <view class="stage-badge">{{actIcon}} {{act}}</view>
+    <view class="cup cup-xl">
+      <view class="cup-inner">
+        <view wx:for="{{bands}}" wx:for-item="b" class="cup-band"
+              style="height:{{b.height}}%;background:{{b.color}}"></view>
+      </view>
+      <view class="cup-shine"></view>
+      <view class="cup-shine2"></view>
+    </view>
+    <view class="stage-layers">杯中：{{cupText}}</view>
+  </view>
+
+  <view class="cook-text">
+    <view class="step-title">{{title}}</view>
+    <view class="step-desc">{{desc}}</view>
+
+    <view wx:if="{{hasTimer}}" class="timer {{running ? 'run' : ''}}" bindtap="onTimerTap">
+      <text class="timer-num">{{timerText}}</text>
+      <text class="timer-label">{{running ? '点一下暂停' : '点一下开始'}}</text>
+    </view>
+
+    <view wx:if="{{tip}}" class="tip" style="border-left-color:{{accent}}">
+      <text class="tip-strong">注意 · </text>{{tip}}
+    </view>
+
+    <view class="cheer"><text class="cheer-e">{{cheerEmoji}}</text><text>{{cheer}}</text></view>
+  </view>
+
+  <view class="bar-space"></view>
+  <view class="nb-bar">
+    <view class="nb-btn {{step === 0 ? 'nb-btn-disabled' : ''}}" hover-class="btn-hover" bindtap="onPrev">上一步</view>
+    <view class="nb-btn nb-btn-accent" hover-class="btn-hover" bindtap="onNext">{{step === total - 1 ? '做完了' : '下一步'}}</view>
+  </view>
+</view>
+
+<view class="done" wx:elif="{{done}}" style="--accent:{{accent}}">
+  <view class="fw">
+    <view wx:for="{{particles}}" class="fw-p"
+          style="left:{{item.left}};top:{{item.top}};background:{{item.color}};width:{{item.size}};height:{{item.size}};animation-delay:{{item.delay}}"></view>
+  </view>
+  <view class="done-inner">
+    <view class="cup done-cup">
+      <view class="cup-inner">
+        <view wx:for="{{bands}}" wx:for-item="b" class="cup-band"
+              style="height:{{b.height}}%;background:{{b.color}}"></view>
+      </view>
+      <view class="cup-shine"></view>
+    </view>
+    <view class="done-title">干杯 🥂 <text class="done-face">{{face}}</text></view>
+    <view class="done-sub">{{name}}做好了</view>
+    <view class="done-actions">
+      <view class="nb-btn nb-btn-accent" hover-class="btn-hover" bindtap="onHome">回到列表</view>
+      <view class="nb-btn" hover-class="btn-hover" bindtap="onRestart">再做一次</view>
+    </view>
+  </view>
+</view>
+
+<view class="nb-empty" wx:else>没找到这杯饮品</view>

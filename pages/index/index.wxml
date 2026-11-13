@@ -1,0 +1,142 @@
+<view class="page">
+  <view class="head">
+    <view class="brand" bindtap="onBrandTap">饮料小当家</view>
+    <view class="search">
+      <text class="search-ico">○</text>
+      <input class="search-input" placeholder="搜饮品、品牌、原料" placeholder-class="ph"
+             value="{{keyword}}" bindinput="onInput" confirm-type="search" />
+    </view>
+    <view class="quick">
+      <view class="quick-btn quick-dark" hover-class="quick-hover" bindtap="openPicker"><text class="q-emoji">🎲</text> 抽一杯</view>
+      <view class="quick-btn" hover-class="quick-hover" bindtap="openPantry"><text class="q-emoji">🥛</text> 手边有</view>
+    </view>
+  </view>
+
+  <view class="tabs">
+    <view wx:for="{{cats}}" wx:key="*this"
+          class="tab {{cat === item ? 'on' : ''}}" data-cat="{{item}}" bindtap="onCatTap">{{item}}</view>
+  </view>
+
+  <view class="filters">
+    <view class="chip {{nocaf ? 'on' : ''}}" bindtap="onToggleNocaf">只看无咖啡因</view>
+  </view>
+
+  <view class="cards">
+    <view wx:for="{{list}}" wx:key="id" class="card" style="background:{{item.bg}}"
+          data-id="{{item.id}}" hover-class="card-hover" bindtap="onCardTap">
+      <view class="cup cup-sm">
+        <view class="cup-inner">
+          <view wx:for="{{item.bands}}" wx:for-item="b" class="cup-band"
+                style="height:{{b.height}}%;background:{{b.color}}"></view>
+        </view>
+        <view class="cup-shine"></view>
+      </view>
+      <view class="card-body">
+        <view class="card-title">{{item.name}}<text wx:if="{{item.nocaf}}" class="nb-nocaf">无因</text></view>
+        <view class="card-meta">{{item.cat}} / {{item.method}} / {{item.diffStar}} / {{item.ingCount}} 样料</view>
+      </view>
+    </view>
+
+    <view wx:if="{{!list.length}}" class="empty">没找到<text class="empty-sub">换个词试试，或者搜原料名</text></view>
+    <view wx:if="{{finished && list.length}}" class="end">— 到底了，共 {{total}} 款 —</view>
+  </view>
+</view>
+
+<!-- 抽一杯 -->
+<view class="fx-overlay" wx:if="{{pickShow}}">
+  <view class="fx-mask" bindtap="closeOverlay"></view>
+  <view class="fx-card picker">
+    <view class="fx-close" bindtap="closeOverlay">×</view>
+    <view class="kicker">今天喝什么 <text>{{pickFace}}</text></view>
+    <view class="cup pick-cup">
+      <view class="cup-inner">
+        <view wx:for="{{pick.bands}}" wx:for-item="b" class="cup-band"
+              style="height:{{b.height}}%;background:{{b.color}}"></view>
+      </view>
+      <view class="cup-shine"></view>
+      <view class="cup-shine2"></view>
+    </view>
+    <view class="pick-name">{{pick.name}}</view>
+    <view class="pick-meta">{{pickMeta}}</view>
+    <view class="pick-line">{{pickLine}}</view>
+    <view class="pick-actions">
+      <view class="nb-btn" hover-class="btn-hover" bindtap="onPickAgain">换一杯</view>
+      <view class="nb-btn nb-btn-accent" hover-class="btn-hover" bindtap="onPickGo">就做这杯</view>
+    </view>
+  </view>
+</view>
+
+<!-- 手边有什么 -->
+<view class="fx-overlay sheet-overlay" wx:if="{{pantryShow}}">
+  <view class="fx-mask" bindtap="closeOverlay"></view>
+  <view class="fx-card sheet">
+    <view class="fx-close" bindtap="closeOverlay">×</view>
+    <view class="sheet-title">手边有什么</view>
+    <view class="sheet-sub">勾几样手里有的，看看能做什么</view>
+
+    <view class="pantry-bar">
+      <input class="pantry-input" placeholder="找原料，比如 牛奶 / 芒果" placeholder-class="ph"
+             value="{{pantryQ}}" bindinput="onPantryInput" />
+      <view class="pantry-clear" bindtap="onPantryClear">清空</view>
+    </view>
+
+    <scroll-view class="chips" scroll-y>
+      <view wx:for="{{vocab}}" wx:key="name" class="chip-item {{item.on ? 'on' : ''}}"
+            data-name="{{item.name}}" bindtap="onChipTap">{{item.name}}<text class="chip-n">{{item.n}}</text></view>
+      <view wx:if="{{!vocab.length}}" class="chips-empty">没找到这个原料</view>
+    </scroll-view>
+    <view class="chips-note">{{vocabNote}}</view>
+
+    <scroll-view class="results" scroll-y>
+      <view class="group">
+        <view class="group-title">现在就能做 <text class="cnt">{{canCount}}</text></view>
+        <block wx:if="{{pantryEmpty}}">
+          <view class="group-empty">先勾几样原料</view>
+        </block>
+        <block wx:elif="{{canCount}}">
+          <view wx:for="{{canList}}" wx:key="id" class="mini" style="background:{{item.bg}}"
+                data-id="{{item.id}}" bindtap="onMiniTap">
+            <view class="cup mini-cup">
+              <view class="cup-inner">
+                <view wx:for="{{item.bands}}" wx:for-item="b" class="cup-band"
+                      style="height:{{b.height}}%;background:{{b.color}}"></view>
+              </view>
+            </view>
+            <view class="mini-body">
+              <view class="mini-name">{{item.name}}</view>
+              <view class="mini-meta">{{item.meta}}</view>
+            </view>
+          </view>
+          <view wx:if="{{canMore}}" class="more">还有 {{canMore}} 款，勾更多原料缩小范围</view>
+        </block>
+        <block wx:else>
+          <view class="group-empty">只勾这些还差一点。补上一样就有得喝：</view>
+          <view class="suggest">
+            <view wx:for="{{suggest}}" wx:key="name" class="chip-item sug"
+                  data-name="{{item.name}}" bindtap="onSuggestTap">+ {{item.name}} <text class="chip-n">{{item.n}} 款</text></view>
+          </view>
+        </block>
+      </view>
+
+      <view class="group">
+        <view class="group-title">只差一样 <text class="cnt cnt-one">{{oneCount}}</text></view>
+        <view wx:for="{{oneList}}" wx:key="id" class="mini" style="background:{{item.bg}}"
+              data-id="{{item.id}}" bindtap="onMiniTap">
+          <view class="cup mini-cup">
+            <view class="cup-inner">
+              <view wx:for="{{item.bands}}" wx:for-item="b" class="cup-band"
+                    style="height:{{b.height}}%;background:{{b.color}}"></view>
+            </view>
+          </view>
+          <view class="mini-body">
+            <view class="mini-name">{{item.name}}</view>
+            <view class="mini-meta">{{item.meta}}</view>
+          </view>
+          <view class="mini-miss">差 {{item.miss}}</view>
+        </view>
+        <view wx:if="{{oneMore}}" class="more">还有 {{oneMore}} 款</view>
+        <view wx:if="{{!oneCount}}" class="group-empty">再勾几样，就能看到「只差一味」的饮品</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

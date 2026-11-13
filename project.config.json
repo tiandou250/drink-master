@@ -1,0 +1,23 @@
+{
+  "description": "饮料小当家 · 市面爆款饮品家用复刻配方库",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": ".workbuddy"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "bundle": false,
+    "es6": true,
+    "minified": true,
+    "postcss": true,
+    "urlCheck": true
+  },
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "drink-master-mini",
+  "miniprogramRoot": "./"
+}

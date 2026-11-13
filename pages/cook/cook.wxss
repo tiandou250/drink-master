@@ -1,0 +1,265 @@
+.page {
+    padding: 36rpx 32rpx 40rpx;
+}
+
+/* ---------- 进度 ---------- */
+.dots {
+    display: flex;
+    gap: 10rpx;
+    margin-bottom: 26rpx;
+}
+
+.dot {
+    height: 14rpx;
+    flex: 1;
+    background: #ffffff;
+    border: 4rpx solid #000000;
+}
+
+.dot.past {
+    background: #C9C9C9;
+}
+
+.dot.on {
+    background: var(--accent, #FCD34D);
+}
+
+.step-label {
+    display: inline-block;
+    font-size: 24rpx;
+    font-weight: 900;
+    padding: 8rpx 20rpx;
+    border: 4rpx solid #000000;
+    margin-bottom: 30rpx;
+}
+
+/* ---------- 配图区 ---------- */
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28rpx 28rpx 24rpx;
+    border: 6rpx solid #000000;
+    box-shadow: 10rpx 10rpx 0 #000000;
+    margin-bottom: 40rpx;
+    animation: stage-in .34s ease both;
+}
+
+@keyframes stage-in {
+    from { opacity: 0; transform: translateY(18rpx); }
+    to { opacity: 1; transform: none; }
+}
+
+.stage-badge {
+    align-self: flex-start;
+    font-size: 24rpx;
+    font-weight: 900;
+    background: #000000;
+    color: #ffffff;
+    padding: 8rpx 20rpx;
+    margin-bottom: 24rpx;
+}
+
+.cup-xl {
+    width: 240rpx;
+    height: 320rpx;
+    box-shadow: 8rpx 8rpx 0 #000000;
+}
+
+.stage-layers {
+    margin-top: 22rpx;
+    font-size: 22rpx;
+    font-weight: 900;
+    background: #ffffff;
+    border: 4rpx solid #000000;
+    padding: 8rpx 18rpx;
+    box-shadow: 4rpx 4rpx 0 #000000;
+    text-align: center;
+}
+
+/* ---------- 文字区 ---------- */
+.cook-text {
+    padding-top: 4rpx;
+}
+
+.step-title {
+    font-size: 44rpx;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 18rpx;
+}
+
+.step-desc {
+    font-size: 29rpx;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+.timer {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 18rpx;
+    margin-top: 30rpx;
+    padding: 20rpx 34rpx;
+    border: 6rpx solid #000000;
+    background: #ffffff;
+    box-shadow: 8rpx 8rpx 0 #000000;
+}
+
+.timer.run {
+    background: var(--accent, #FCD34D);
+    animation: timer-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes timer-pulse {
+    0%, 100% { box-shadow: 8rpx 8rpx 0 #000000; }
+    50% { box-shadow: 12rpx 14rpx 0 #000000; }
+}
+
+.timer-num {
+    font-size: 52rpx;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-label {
+    font-size: 22rpx;
+    font-weight: 900;
+}
+
+.tip {
+    margin-top: 32rpx;
+    padding: 22rpx 24rpx;
+    border: 6rpx solid #000000;
+    border-left-width: 16rpx;
+    border-left-color: var(--accent, #FCD34D);
+    background: #ffffff;
+    box-shadow: 6rpx 6rpx 0 #000000;
+    font-size: 26rpx;
+    line-height: 1.7;
+}
+
+.tip-strong {
+    font-weight: 900;
+}
+
+.cheer {
+    display: inline-flex;
+    align-items: center;
+    gap: 16rpx;
+    margin-top: 30rpx;
+    padding: 16rpx 26rpx;
+    font-size: 28rpx;
+    font-weight: 900;
+    background: #ffffff;
+    border: 6rpx solid #000000;
+    box-shadow: 6rpx 6rpx 0 #000000;
+    transform: rotate(-1deg);
+}
+
+.cheer-e {
+    font-size: 34rpx;
+    animation: breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.bar-space {
+    height: 180rpx;
+}
+
+.btn-hover {
+    transform: translate(6rpx, 6rpx);
+    box-shadow: 2rpx 2rpx 0 #000000;
+}
+
+/* ---------- 完成页 ---------- */
+.done {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60rpx 32rpx;
+    overflow: hidden;
+}
+
+.fw {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.fw-p {
+    position: absolute;
+    opacity: 0;
+    animation: fw-flash 1.3s ease-out forwards;
+}
+
+@keyframes fw-flash {
+    0% { opacity: 0; transform: scale(.2); }
+    18% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(.5) translateY(140rpx); }
+}
+
+.done-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.done-cup {
+    width: 240rpx;
+    height: 316rpx;
+    border-width: 8rpx;
+    box-shadow: 14rpx 14rpx 0 #000000;
+    animation: cup-pop .5s ease both;
+}
+
+@keyframes cup-pop {
+    0% { opacity: 0; transform: scale(.8) rotate(-5deg); }
+    100% { opacity: 1; transform: none; }
+}
+
+.done-title {
+    font-size: 60rpx;
+    font-weight: 900;
+    margin: 40rpx 0 12rpx;
+    line-height: 1;
+}
+
+.done-face {
+    font-size: 40rpx;
+    animation: breathe 2s ease-in-out infinite;
+}
+
+.done-sub {
+    font-size: 28rpx;
+    font-weight: 700;
+    margin-bottom: 46rpx;
+}
+
+.done-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+    width: 100%;
+}
+
+.nb-empty {
+    margin: 120rpx 32rpx;
+    padding: 80rpx 40rpx;
+    text-align: center;
+    font-weight: 900;
+    border: 6rpx dashed #000000;
+}
